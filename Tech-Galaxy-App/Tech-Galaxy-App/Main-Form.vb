@@ -1,7 +1,10 @@
-﻿Public Class frmMain
+﻿Imports System.Data.OleDb
+Public Class frmMain
 
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Populate grdItems
+        'btnMain.PerformClick()
+        populate()
     End Sub
 
     Public Sub EnableNavigation()
@@ -71,5 +74,18 @@
         If grdOrders.Rows.Count > 0 Then
             grdOrders.Rows.Remove(grdOrders.SelectedRows(0))
         End If
+    End Sub
+
+    Public Sub populate()
+        Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items", con)
+            Dim dt As New DataTable
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End Using
+    End Sub
+
+    Private Sub btnMain_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMain.Click
+        populate()
     End Sub
 End Class
