@@ -16,7 +16,7 @@ Public Class frmLogin
 
     Public Sub DoSignIn()
         con.Open()
-        Using cmd As New OleDbCommand("SELECT username,password FROM tbl_login WHERE username=@Username AND password=@Password", con)
+        Using cmd As New OleDbCommand("SELECT * FROM tbl_login WHERE username=@Username AND password=@Password", con)
             cmd.Parameters.AddWithValue("@Username", txtUsername.Text)
             cmd.Parameters.AddWithValue("@Password", txtPassword.Text)
             Dim result = cmd.ExecuteScalar()
@@ -25,7 +25,7 @@ Public Class frmLogin
                 reader = cmd.ExecuteReader
                 reader.Read()
                 If reader.HasRows Then
-                    If reader.Item(6).ToString = "admin" Then
+                    If reader.Item(5).ToString = "admin" Then
                         frmMain.Show()
                         Me.Close()
                     Else
@@ -35,7 +35,5 @@ Public Class frmLogin
                 End If
             End If
         End Using
-        TESTIIIIING
-
     End Sub
 End Class
