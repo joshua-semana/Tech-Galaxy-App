@@ -14,6 +14,9 @@
     End Sub
 
     Public Sub DoSignIn()
+        con.Open()
+        Using cmd As OleDbCommand
+        con.Close()
         frmMain.Show()
         Me.Close()
     End Sub
