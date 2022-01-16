@@ -43,7 +43,6 @@ Public Class frmLogin
                 MsgBox("Username or Password is incorrect, please try again.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Critical, "Login Error")
             End If
         End Using
-        con.Close()
     End Sub
 
 
