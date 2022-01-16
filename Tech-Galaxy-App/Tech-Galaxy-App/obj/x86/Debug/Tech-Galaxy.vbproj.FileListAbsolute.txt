@@ -1,0 +1,9 @@
+C:\Users\samsung\AppData\Local\Temporary Projects\Tech-Galaxy\bin\Debug\Tech-Galaxy.exe
+C:\Users\samsung\AppData\Local\Temporary Projects\Tech-Galaxy\bin\Debug\Tech-Galaxy.pdb
+C:\Users\samsung\AppData\Local\Temporary Projects\Tech-Galaxy\bin\Debug\Tech-Galaxy.xml
+C:\Users\samsung\AppData\Local\Temporary Projects\Tech-Galaxy\obj\x86\Debug\Tech_Galaxy.Resources.resources
+C:\Users\samsung\AppData\Local\Temporary Projects\Tech-Galaxy\obj\x86\Debug\Tech-Galaxy.vbproj.GenerateResource.Cache
+C:\Users\samsung\AppData\Local\Temporary Projects\Tech-Galaxy\obj\x86\Debug\Tech-Galaxy.exe
+C:\Users\samsung\AppData\Local\Temporary Projects\Tech-Galaxy\obj\x86\Debug\Tech-Galaxy.xml
+C:\Users\samsung\AppData\Local\Temporary Projects\Tech-Galaxy\obj\x86\Debug\Tech-Galaxy.pdb
+C:\Users\samsung\AppData\Local\Temporary Projects\Tech-Galaxy\obj\x86\Debug\Tech_Galaxy.frmLogin.resources
