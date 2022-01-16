@@ -33,7 +33,10 @@ Public Class frmLogin
                         Me.Close()
                     End If
                 End If
+            Else
+                MsgBox("Username or Password is incorrect, please try again.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Critical, "Login Error")
             End If
         End Using
+        con.Close()
     End Sub
 End Class
