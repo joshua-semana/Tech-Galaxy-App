@@ -58,10 +58,6 @@ Partial Class frmMain
         Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colOrderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colSubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colCategory = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colStock = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -543,7 +539,6 @@ Partial Class frmMain
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.grdItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colName, Me.colCategory, Me.colPrice, Me.colStock})
         Me.grdItems.Cursor = System.Windows.Forms.Cursors.Arrow
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
@@ -685,33 +680,6 @@ Partial Class frmMain
         Me.colSubTotal.Name = "colSubTotal"
         Me.colSubTotal.ReadOnly = True
         '
-        'colName
-        '
-        Me.colName.FillWeight = 152.2843!
-        Me.colName.HeaderText = "Name"
-        Me.colName.Name = "colName"
-        Me.colName.ReadOnly = True
-        '
-        'colCategory
-        '
-        Me.colCategory.HeaderText = "Category"
-        Me.colCategory.Name = "colCategory"
-        Me.colCategory.ReadOnly = True
-        '
-        'colPrice
-        '
-        Me.colPrice.FillWeight = 73.85786!
-        Me.colPrice.HeaderText = "Price"
-        Me.colPrice.Name = "colPrice"
-        Me.colPrice.ReadOnly = True
-        '
-        'colStock
-        '
-        Me.colStock.FillWeight = 73.85786!
-        Me.colStock.HeaderText = "Stock"
-        Me.colStock.Name = "colStock"
-        Me.colStock.ReadOnly = True
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -776,8 +744,4 @@ Partial Class frmMain
     Friend WithEvents btnSetting As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSignOut As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnRemoveOrderItem As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents colName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colCategory As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colPrice As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colStock As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
