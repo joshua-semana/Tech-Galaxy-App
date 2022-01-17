@@ -22,9 +22,9 @@ Partial Class frmUserMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -32,6 +32,10 @@ Partial Class frmUserMain
         Me.btnSignOut = New Guna.UI2.WinForms.Guna2Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.grdOrders = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colOrderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colSubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.btnClearOrder = New Guna.UI2.WinForms.Guna2Button()
         Me.lblTotal = New System.Windows.Forms.Label()
@@ -40,9 +44,6 @@ Partial Class frmUserMain
         Me.btnCheckOut = New Guna.UI2.WinForms.Guna2Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.grdItems = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.colName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colStock = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnFilterChassis = New Guna.UI2.WinForms.Guna2Button()
         Me.btnFilterPowerSupply = New Guna.UI2.WinForms.Guna2Button()
         Me.btnFilterMemory = New Guna.UI2.WinForms.Guna2Button()
@@ -53,15 +54,15 @@ Partial Class frmUserMain
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblOrderNumber = New System.Windows.Forms.Label()
-        Me.grdOrders = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colOrderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colSubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colCategory = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colStock = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.grdItems, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdOrders, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -120,6 +121,99 @@ Partial Class frmUserMain
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(300, 640)
         Me.Panel2.TabIndex = 2
+        '
+        'grdOrders
+        '
+        Me.grdOrders.AllowUserToAddRows = False
+        Me.grdOrders.AllowUserToDeleteRows = False
+        Me.grdOrders.AllowUserToOrderColumns = True
+        Me.grdOrders.AllowUserToResizeColumns = False
+        Me.grdOrders.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.grdOrders.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.grdOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.grdOrders.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.grdOrders.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.grdOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.grdOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdOrders.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.grdOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.grdOrders.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colQuantity, Me.colOrderName, Me.colSubTotal})
+        Me.grdOrders.Cursor = System.Windows.Forms.Cursors.Arrow
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdOrders.DefaultCellStyle = DataGridViewCellStyle3
+        Me.grdOrders.EnableHeadersVisualStyles = False
+        Me.grdOrders.GridColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.grdOrders.Location = New System.Drawing.Point(11, 49)
+        Me.grdOrders.MultiSelect = False
+        Me.grdOrders.Name = "grdOrders"
+        Me.grdOrders.ReadOnly = True
+        Me.grdOrders.RowHeadersVisible = False
+        Me.grdOrders.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.grdOrders.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.grdOrders.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.grdOrders.RowTemplate.DefaultCellStyle.Padding = New System.Windows.Forms.Padding(4, 5, 0, 5)
+        Me.grdOrders.RowTemplate.Height = 30
+        Me.grdOrders.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.grdOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.grdOrders.Size = New System.Drawing.Size(279, 458)
+        Me.grdOrders.TabIndex = 15
+        Me.grdOrders.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.[Default]
+        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.grdOrders.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.grdOrders.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.grdOrders.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.grdOrders.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.grdOrders.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdOrders.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.grdOrders.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.grdOrders.ThemeStyle.HeaderStyle.Height = 23
+        Me.grdOrders.ThemeStyle.ReadOnly = True
+        Me.grdOrders.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.grdOrders.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.grdOrders.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.grdOrders.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
+        Me.grdOrders.ThemeStyle.RowsStyle.Height = 30
+        Me.grdOrders.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.grdOrders.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White
+        '
+        'colQuantity
+        '
+        Me.colQuantity.FillWeight = 41.48817!
+        Me.colQuantity.HeaderText = "#"
+        Me.colQuantity.Name = "colQuantity"
+        Me.colQuantity.ReadOnly = True
+        '
+        'colOrderName
+        '
+        Me.colOrderName.FillWeight = 161.8181!
+        Me.colOrderName.HeaderText = "Name"
+        Me.colOrderName.Name = "colOrderName"
+        Me.colOrderName.ReadOnly = True
+        '
+        'colSubTotal
+        '
+        Me.colSubTotal.FillWeight = 115.4754!
+        Me.colSubTotal.HeaderText = "Sub-Total"
+        Me.colSubTotal.Name = "colSubTotal"
+        Me.colSubTotal.ReadOnly = True
         '
         'Guna2Button1
         '
@@ -243,32 +337,32 @@ Partial Class frmUserMain
         Me.grdItems.AllowUserToOrderColumns = True
         Me.grdItems.AllowUserToResizeColumns = False
         Me.grdItems.AllowUserToResizeRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.grdItems.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.grdItems.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         Me.grdItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.grdItems.BackgroundColor = System.Drawing.Color.White
         Me.grdItems.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.grdItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.grdItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.grdItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.grdItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colName, Me.colPrice, Me.colStock})
+        Me.grdItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colName, Me.colCategory, Me.colPrice, Me.colStock})
         Me.grdItems.Cursor = System.Windows.Forms.Cursors.Arrow
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdItems.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdItems.DefaultCellStyle = DataGridViewCellStyle6
         Me.grdItems.EnableHeadersVisualStyles = False
         Me.grdItems.GridColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
         Me.grdItems.Location = New System.Drawing.Point(61, 126)
@@ -307,27 +401,6 @@ Partial Class frmUserMain
         Me.grdItems.ThemeStyle.RowsStyle.Height = 30
         Me.grdItems.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.grdItems.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White
-        '
-        'colName
-        '
-        Me.colName.FillWeight = 152.2843!
-        Me.colName.HeaderText = "Name"
-        Me.colName.Name = "colName"
-        Me.colName.ReadOnly = True
-        '
-        'colPrice
-        '
-        Me.colPrice.FillWeight = 73.85786!
-        Me.colPrice.HeaderText = "Price"
-        Me.colPrice.Name = "colPrice"
-        Me.colPrice.ReadOnly = True
-        '
-        'colStock
-        '
-        Me.colStock.FillWeight = 73.85786!
-        Me.colStock.HeaderText = "Stock"
-        Me.colStock.Name = "colStock"
-        Me.colStock.ReadOnly = True
         '
         'btnFilterChassis
         '
@@ -528,98 +601,32 @@ Partial Class frmUserMain
         Me.lblOrderNumber.TabIndex = 13
         Me.lblOrderNumber.Text = "Order No. #001"
         '
-        'grdOrders
+        'colName
         '
-        Me.grdOrders.AllowUserToAddRows = False
-        Me.grdOrders.AllowUserToDeleteRows = False
-        Me.grdOrders.AllowUserToOrderColumns = True
-        Me.grdOrders.AllowUserToResizeColumns = False
-        Me.grdOrders.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.grdOrders.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.grdOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.grdOrders.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.grdOrders.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.grdOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.grdOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdOrders.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        Me.grdOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.grdOrders.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colQuantity, Me.colOrderName, Me.colSubTotal})
-        Me.grdOrders.Cursor = System.Windows.Forms.Cursors.Arrow
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdOrders.DefaultCellStyle = DataGridViewCellStyle6
-        Me.grdOrders.EnableHeadersVisualStyles = False
-        Me.grdOrders.GridColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.grdOrders.Location = New System.Drawing.Point(11, 49)
-        Me.grdOrders.MultiSelect = False
-        Me.grdOrders.Name = "grdOrders"
-        Me.grdOrders.ReadOnly = True
-        Me.grdOrders.RowHeadersVisible = False
-        Me.grdOrders.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.grdOrders.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.grdOrders.RowTemplate.DefaultCellStyle.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.grdOrders.RowTemplate.DefaultCellStyle.Padding = New System.Windows.Forms.Padding(4, 5, 0, 5)
-        Me.grdOrders.RowTemplate.Height = 30
-        Me.grdOrders.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.grdOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grdOrders.Size = New System.Drawing.Size(279, 458)
-        Me.grdOrders.TabIndex = 15
-        Me.grdOrders.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.[Default]
-        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.grdOrders.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.grdOrders.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.grdOrders.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.grdOrders.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.grdOrders.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.grdOrders.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdOrders.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.grdOrders.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.grdOrders.ThemeStyle.HeaderStyle.Height = 23
-        Me.grdOrders.ThemeStyle.ReadOnly = True
-        Me.grdOrders.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.grdOrders.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.grdOrders.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.grdOrders.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black
-        Me.grdOrders.ThemeStyle.RowsStyle.Height = 30
-        Me.grdOrders.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.grdOrders.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White
+        Me.colName.FillWeight = 152.2843!
+        Me.colName.HeaderText = "Name"
+        Me.colName.Name = "colName"
+        Me.colName.ReadOnly = True
         '
-        'colQuantity
+        'colCategory
         '
-        Me.colQuantity.FillWeight = 41.48817!
-        Me.colQuantity.HeaderText = "#"
-        Me.colQuantity.Name = "colQuantity"
-        Me.colQuantity.ReadOnly = True
+        Me.colCategory.HeaderText = "Category"
+        Me.colCategory.Name = "colCategory"
+        Me.colCategory.ReadOnly = True
         '
-        'colOrderName
+        'colPrice
         '
-        Me.colOrderName.FillWeight = 161.8181!
-        Me.colOrderName.HeaderText = "Name"
-        Me.colOrderName.Name = "colOrderName"
-        Me.colOrderName.ReadOnly = True
+        Me.colPrice.FillWeight = 73.85786!
+        Me.colPrice.HeaderText = "Price"
+        Me.colPrice.Name = "colPrice"
+        Me.colPrice.ReadOnly = True
         '
-        'colSubTotal
+        'colStock
         '
-        Me.colSubTotal.FillWeight = 115.4754!
-        Me.colSubTotal.HeaderText = "Sub-Total"
-        Me.colSubTotal.Name = "colSubTotal"
-        Me.colSubTotal.ReadOnly = True
+        Me.colStock.FillWeight = 73.85786!
+        Me.colStock.HeaderText = "Stock"
+        Me.colStock.Name = "colStock"
+        Me.colStock.ReadOnly = True
         '
         'frmUserMain
         '
@@ -648,8 +655,8 @@ Partial Class frmUserMain
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.grdItems, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdOrders, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -666,9 +673,6 @@ Partial Class frmUserMain
     Friend WithEvents btnCheckOut As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents grdItems As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents colName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colPrice As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colStock As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnFilterChassis As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFilterPowerSupply As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFilterMemory As Guna.UI2.WinForms.Guna2Button
@@ -683,4 +687,8 @@ Partial Class frmUserMain
     Friend WithEvents colQuantity As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colOrderName As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colSubTotal As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colName As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colCategory As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colPrice As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colStock As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
