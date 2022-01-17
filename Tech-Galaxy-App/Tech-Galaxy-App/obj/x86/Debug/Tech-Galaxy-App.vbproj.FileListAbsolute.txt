@@ -41,3 +41,25 @@ C:\Users\roenl\Desktop\For college\3rd yr\Github\project\Tech-Galaxy-App\Tech-Ga
 C:\Users\roenl\Desktop\For college\3rd yr\Github\project\Tech-Galaxy-App\Tech-Galaxy-App\bin\Debug\Tech-Galaxy-App.exe
 C:\Users\roenl\Desktop\For college\3rd yr\Github\project\Tech-Galaxy-App\Tech-Galaxy-App\bin\Debug\Tech-Galaxy-App.pdb
 C:\Users\roenl\Desktop\For college\3rd yr\Github\project\Tech-Galaxy-App\Tech-Galaxy-App\bin\Debug\Tech-Galaxy-App.xml
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech-Galaxy-App.exe
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech-Galaxy-App.xml
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech-Galaxy-App.pdb
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech-Galaxy-App.vbprojResolveAssemblyReference.cache
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.frmAccount.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.dlgAddAccount.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.dlgAddItem.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.dlgAddStock.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.dlgConfirmation.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.dlgConfirmation2.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.dlgConfirmation3.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.frmHistory.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.frmInventory.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.frmLogin.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.frmMain.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.Resources.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.dlgQuantity.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech_Galaxy.frmUserMain.resources
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech-Galaxy-App.vbproj.GenerateResource.Cache
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\bin\Debug\Tech-Galaxy-App.exe
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\bin\Debug\Tech-Galaxy-App.pdb
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\bin\Debug\Tech-Galaxy-App.xml
