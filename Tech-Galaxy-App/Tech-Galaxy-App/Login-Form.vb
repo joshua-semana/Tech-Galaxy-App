@@ -14,6 +14,12 @@ Public Class frmLogin
         End If
     End Sub
 
+    Private Sub txtPassword_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtPassword.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            DoSignIn()
+        End If
+    End Sub
+
     Public Sub DoSignIn()
         con.Open()
         Using cmd As New OleDbCommand("SELECT * FROM tbl_login WHERE username=@Username AND password=@Password", con)
@@ -39,4 +45,6 @@ Public Class frmLogin
         End Using
         con.Close()
     End Sub
+
+
 End Class
