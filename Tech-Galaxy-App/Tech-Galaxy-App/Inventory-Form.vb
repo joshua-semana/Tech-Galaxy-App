@@ -2,6 +2,7 @@
 
     Public Sub EnableEdit()
         txtItemName.Enabled = True
+        cmbCategory.Enabled = True
         txtPrice.Enabled = True
         numStock.Enabled = True
         btnSave.Visible = True
@@ -29,6 +30,7 @@
 
     Public Sub DisableEdit()
         txtItemName.Enabled = False
+        cmbCategory.Enabled = False
         txtPrice.Enabled = False
         numStock.Enabled = False
         btnSave.Visible = False
