@@ -35,7 +35,6 @@ Public Class frmLogin
                 End If
             End If
         End Using
-        sefsfsefsefesf()
 
     End Sub
 End Class
