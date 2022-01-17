@@ -41,3 +41,6 @@ C:\Users\roenl\Desktop\For college\3rd yr\Github\project\Tech-Galaxy-App\Tech-Ga
 C:\Users\roenl\Desktop\For college\3rd yr\Github\project\Tech-Galaxy-App\Tech-Galaxy-App\bin\Debug\Tech-Galaxy-App.exe
 C:\Users\roenl\Desktop\For college\3rd yr\Github\project\Tech-Galaxy-App\Tech-Galaxy-App\bin\Debug\Tech-Galaxy-App.pdb
 C:\Users\roenl\Desktop\For college\3rd yr\Github\project\Tech-Galaxy-App\Tech-Galaxy-App\bin\Debug\Tech-Galaxy-App.xml
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech-Galaxy-App.exe
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech-Galaxy-App.xml
+C:\Users\samsung\Documents\GitHub\Tech-Galaxy-App\Tech-Galaxy-App\Tech-Galaxy-App\obj\x86\Debug\Tech-Galaxy-App.pdb
