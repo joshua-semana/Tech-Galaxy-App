@@ -1,5 +1,9 @@
-﻿Public Class frmInventory
+﻿Imports System.Data.OleDb
+Public Class frmInventory
 
+    Private Sub frmInventory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Populate()
+    End Sub
     Public Sub EnableEdit()
         txtItemName.Enabled = True
         cmbCategory.Enabled = True
@@ -27,7 +31,6 @@
         btnHistory.Enabled = False
         btnSetting.Enabled = False
     End Sub
-
     Public Sub DisableEdit()
         txtItemName.Enabled = False
         cmbCategory.Enabled = False
@@ -66,12 +69,7 @@
 
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         btnEdit.Checked = False
-    End Sub
-
-    Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            'Do Search
-        End If
+        btnInventory.PerformClick()
     End Sub
 
     Private Sub btnMain_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMain.Click
@@ -92,6 +90,7 @@
     Private Sub btnSignOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSignOut.Click
         Dim result = dlgConfirmation3.ShowDialog()
         If result = DialogResult.Yes Then
+            con.Close()
             frmLogin.Show()
             Me.Close()
         End If
@@ -121,11 +120,138 @@
     End Sub
 
     Public Sub RemoveItem()
-
+        Using cmd As New OleDbCommand("DELETE FROM tbl_exampleitems WHERE [ID] = @ID", con)
+            cmd.Parameters.Add("@ID", OleDbType.Integer).Value = txtID.Text.Trim
+            If cmd.ExecuteNonQuery() Then
+                Dim result = MessageBox.Show("Item Deleted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If result = DialogResult.OK Then
+                    btnCancel.PerformClick()
+                End If
+                Exit Sub
+            End If
+        End Using
     End Sub
 
     Public Sub Populate()
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems", con)
+            Dim dt As New DataTable
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End Using
+    End Sub
+    'filters
+    Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            'Do Search
+            Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE item_name LIKE '%" + txtSearch.Text + "%'", con)
+                Dim dt As New DataTable
+                dt.Clear()
+                da.Fill(dt)
+                grdItems.DataSource = dt.DefaultView
+                grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            End Using
+        End If
+    End Sub
+    Private Sub btnFilterAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterAll.Click
+        populate()
+        txtSearch.Text = ""
+    End Sub
+    Private Sub btnFilterProcessor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterProcessor.Click
+        Dim r As String = "Processor"
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+            Dim dt As New DataTable
+            dt.Clear()
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End Using
+        txtSearch.Text = ""
+    End Sub
+    Private Sub btnFilterMotherboard_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterMotherboard.Click
+        Dim r As String = "Motherboard"
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+            Dim dt As New DataTable
+            dt.Clear()
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End Using
+        txtSearch.Text = ""
+    End Sub
+    Private Sub btnFilterVideoCard_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterVideoCard.Click
+        Dim r As String = "Video Card"
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+            Dim dt As New DataTable
+            dt.Clear()
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End Using
+        txtSearch.Text = ""
+    End Sub
+    Private Sub btnFilterMemory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterMemory.Click
+        Dim r As String = "Memory"
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+            Dim dt As New DataTable
+            dt.Clear()
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End Using
+        txtSearch.Text = ""
+    End Sub
+    Private Sub btnFilterPowerSupply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterPowerSupply.Click
+        Dim r As String = "Power Supply"
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+            Dim dt As New DataTable
+            dt.Clear()
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End Using
+        txtSearch.Text = ""
+    End Sub
+    Private Sub btnFilterChassis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterChassis.Click
+        Dim r As String = "Chassis"
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+            Dim dt As New DataTable
+            dt.Clear()
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End Using
+        txtSearch.Text = ""
+    End Sub 'end filters
 
+    Private Sub grdItems_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdItems.CellClick
+        Try
+            Dim index As Integer
+            index = e.RowIndex
+            Dim row As DataGridViewRow
+            row = grdItems.Rows(index)
+            txtID.Text = row.Cells(0).Value.ToString
+            txtItemName.Text = row.Cells(1).Value.ToString
+            cmbCategory.Text = row.Cells(2).Value.ToString
+            txtPrice.Text = row.Cells(3).Value.ToString
+            numStock.Value = row.Cells(4).Value.ToString
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
+    Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
+        Using cmd As New OleDbCommand("UPDATE tbl_exampleitems SET [item_name] = '" & txtItemName.Text & "', [category] = '" & cmbCategory.Text & "', [price] = '" & txtPrice.Text & "', [stock] = '" & numStock.Value & "' WHERE [ID] = @ID", con)
+            cmd.Parameters.Add("@ID", OleDbType.Integer).Value = txtID.Text.Trim
+            cmd.ExecuteNonQuery()
+            Dim result = MessageBox.Show("Item Updated!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            If result = DialogResult.OK Then
+                btnCancel.PerformClick()
+            End If
+        End Using
+    End Sub
+
+    Private Sub btnInventory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInventory.Click
+        Populate()
+    End Sub
 End Class
