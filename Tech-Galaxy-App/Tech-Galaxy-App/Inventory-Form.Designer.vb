@@ -33,6 +33,8 @@ Partial Class frmInventory
         Me.btnMain = New Guna.UI2.WinForms.Guna2Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cmbCategory = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.btnRemoveItem = New Guna.UI2.WinForms.Guna2Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.numStock = New Guna.UI2.WinForms.Guna2NumericUpDown()
@@ -56,12 +58,7 @@ Partial Class frmInventory
         Me.grdItems = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.btnAdd = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAddStock = New Guna.UI2.WinForms.Guna2Button()
-        Me.colName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colCategory = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colStock = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cmbCategory = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.txtID = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -193,6 +190,7 @@ Partial Class frmInventory
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.txtID)
         Me.Panel2.Controls.Add(Me.cmbCategory)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.btnRemoveItem)
@@ -211,6 +209,40 @@ Partial Class frmInventory
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(300, 640)
         Me.Panel2.TabIndex = 2
+        '
+        'cmbCategory
+        '
+        Me.cmbCategory.BackColor = System.Drawing.Color.Transparent
+        Me.cmbCategory.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCategory.Enabled = False
+        Me.cmbCategory.FocusedColor = System.Drawing.Color.Empty
+        Me.cmbCategory.FocusedState.Parent = Me.cmbCategory
+        Me.cmbCategory.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbCategory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbCategory.FormattingEnabled = True
+        Me.cmbCategory.HoverState.Parent = Me.cmbCategory
+        Me.cmbCategory.ItemHeight = 30
+        Me.cmbCategory.Items.AddRange(New Object() {"Processor", "Motherboard", "Video Card", "Memory", "Power Supply", "Chassis"})
+        Me.cmbCategory.ItemsAppearance.Parent = Me.cmbCategory
+        Me.cmbCategory.Location = New System.Drawing.Point(11, 139)
+        Me.cmbCategory.Name = "cmbCategory"
+        Me.cmbCategory.ShadowDecoration.Parent = Me.cmbCategory
+        Me.cmbCategory.Size = New System.Drawing.Size(279, 36)
+        Me.cmbCategory.TabIndex = 29
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(7, 115)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(80, 21)
+        Me.Label4.TabIndex = 28
+        Me.Label4.Text = "Category"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnRemoveItem
         '
@@ -636,7 +668,6 @@ Partial Class frmInventory
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.grdItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.grdItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colName, Me.colCategory, Me.colPrice, Me.colStock})
         Me.grdItems.Cursor = System.Windows.Forms.Cursors.Arrow
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
@@ -725,67 +756,34 @@ Partial Class frmInventory
         Me.btnAddStock.TabIndex = 27
         Me.btnAddStock.Text = "Add Stock"
         '
-        'colName
+        'txtID
         '
-        Me.colName.FillWeight = 152.2843!
-        Me.colName.HeaderText = "Name"
-        Me.colName.Name = "colName"
-        Me.colName.ReadOnly = True
-        '
-        'colCategory
-        '
-        Me.colCategory.HeaderText = "Category"
-        Me.colCategory.Name = "colCategory"
-        Me.colCategory.ReadOnly = True
-        '
-        'colPrice
-        '
-        Me.colPrice.FillWeight = 73.85786!
-        Me.colPrice.HeaderText = "Price"
-        Me.colPrice.Name = "colPrice"
-        Me.colPrice.ReadOnly = True
-        '
-        'colStock
-        '
-        Me.colStock.FillWeight = 73.85786!
-        Me.colStock.HeaderText = "Stock"
-        Me.colStock.Name = "colStock"
-        Me.colStock.ReadOnly = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(7, 115)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(80, 21)
-        Me.Label4.TabIndex = 28
-        Me.Label4.Text = "Category"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'cmbCategory
-        '
-        Me.cmbCategory.BackColor = System.Drawing.Color.Transparent
-        Me.cmbCategory.BorderRadius = 3
-        Me.cmbCategory.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCategory.Enabled = False
-        Me.cmbCategory.FocusedColor = System.Drawing.Color.Empty
-        Me.cmbCategory.FocusedState.Parent = Me.cmbCategory
-        Me.cmbCategory.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbCategory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.HoverState.Parent = Me.cmbCategory
-        Me.cmbCategory.ItemHeight = 30
-        Me.cmbCategory.Items.AddRange(New Object() {"Processor", "Motherboard", "Video Card", "Memory", "Power Supply", "Chassis"})
-        Me.cmbCategory.ItemsAppearance.Parent = Me.cmbCategory
-        Me.cmbCategory.Location = New System.Drawing.Point(11, 139)
-        Me.cmbCategory.Name = "cmbCategory"
-        Me.cmbCategory.ShadowDecoration.Parent = Me.cmbCategory
-        Me.cmbCategory.Size = New System.Drawing.Size(279, 36)
-        Me.cmbCategory.TabIndex = 29
+        Me.txtID.Animated = True
+        Me.txtID.BorderRadius = 5
+        Me.txtID.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtID.DefaultText = ""
+        Me.txtID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtID.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtID.DisabledState.Parent = Me.txtID
+        Me.txtID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtID.Enabled = False
+        Me.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtID.FocusedState.Parent = Me.txtID
+        Me.txtID.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.txtID.ForeColor = System.Drawing.Color.Black
+        Me.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtID.HoverState.Parent = Me.txtID
+        Me.txtID.Location = New System.Drawing.Point(12, 570)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(5)
+        Me.txtID.Name = "txtID"
+        Me.txtID.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtID.PlaceholderText = ""
+        Me.txtID.SelectedText = ""
+        Me.txtID.ShadowDecoration.Parent = Me.txtID
+        Me.txtID.Size = New System.Drawing.Size(10, 10)
+        Me.txtID.TabIndex = 30
+        Me.txtID.Visible = False
         '
         'frmInventory
         '
@@ -854,8 +852,5 @@ Partial Class frmInventory
     Friend WithEvents btnAddStock As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents cmbCategory As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents colName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colCategory As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colPrice As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colStock As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txtID As Guna.UI2.WinForms.Guna2TextBox
 End Class
