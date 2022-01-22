@@ -23,15 +23,17 @@ Partial Class dlgAddItem
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlContainer = New Guna.UI2.WinForms.Guna2Panel()
-        Me.numStock = New Guna.UI2.WinForms.Guna2NumericUpDown()
+        Me.btnCancel = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnAdd = New Guna.UI2.WinForms.Guna2Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmbCategory = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.numStock = New Guna.UI2.WinForms.Guna2NumericUpDown()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtPrice = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtItemName = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.btnCancel = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnAdd = New Guna.UI2.WinForms.Guna2Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlContainer.SuspendLayout()
         CType(Me.numStock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -40,8 +42,10 @@ Partial Class dlgAddItem
         '
         Me.pnlContainer.BorderColor = System.Drawing.Color.DarkGray
         Me.pnlContainer.BorderThickness = 1
-        Me.pnlContainer.Controls.Add(Me.numStock)
+        Me.pnlContainer.Controls.Add(Me.cmbCategory)
+        Me.pnlContainer.Controls.Add(Me.Label4)
         Me.pnlContainer.Controls.Add(Me.Label5)
+        Me.pnlContainer.Controls.Add(Me.numStock)
         Me.pnlContainer.Controls.Add(Me.Label2)
         Me.pnlContainer.Controls.Add(Me.txtPrice)
         Me.pnlContainer.Controls.Add(Me.Label3)
@@ -55,127 +59,8 @@ Partial Class dlgAddItem
         Me.pnlContainer.Name = "pnlContainer"
         Me.pnlContainer.Padding = New System.Windows.Forms.Padding(10)
         Me.pnlContainer.ShadowDecoration.Parent = Me.pnlContainer
-        Me.pnlContainer.Size = New System.Drawing.Size(300, 300)
+        Me.pnlContainer.Size = New System.Drawing.Size(300, 406)
         Me.pnlContainer.TabIndex = 2
-        '
-        'numStock
-        '
-        Me.numStock.BackColor = System.Drawing.Color.Transparent
-        Me.numStock.BorderRadius = 3
-        Me.numStock.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.numStock.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.numStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.numStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.numStock.DisabledState.Parent = Me.numStock
-        Me.numStock.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer))
-        Me.numStock.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer))
-        Me.numStock.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.numStock.FocusedState.Parent = Me.numStock
-        Me.numStock.Font = New System.Drawing.Font("Varela Round", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.numStock.ForeColor = System.Drawing.Color.Black
-        Me.numStock.Location = New System.Drawing.Point(13, 200)
-        Me.numStock.Margin = New System.Windows.Forms.Padding(4, 4, 4, 10)
-        Me.numStock.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.numStock.Name = "numStock"
-        Me.numStock.ShadowDecoration.Parent = Me.numStock
-        Me.numStock.Size = New System.Drawing.Size(274, 36)
-        Me.numStock.TabIndex = 31
-        Me.numStock.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.numStock.UpDownButtonForeColor = System.Drawing.Color.White
-        Me.numStock.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.White
-        Me.Label5.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(10, 175)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(54, 21)
-        Me.Label5.TabIndex = 30
-        Me.Label5.Text = "Stock"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.White
-        Me.Label2.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(9, 108)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 21)
-        Me.Label2.TabIndex = 28
-        Me.Label2.Text = "Price"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtPrice
-        '
-        Me.txtPrice.Animated = True
-        Me.txtPrice.BorderRadius = 5
-        Me.txtPrice.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPrice.DefaultText = ""
-        Me.txtPrice.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtPrice.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtPrice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPrice.DisabledState.Parent = Me.txtPrice
-        Me.txtPrice.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPrice.FocusedState.Parent = Me.txtPrice
-        Me.txtPrice.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.txtPrice.ForeColor = System.Drawing.Color.Black
-        Me.txtPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPrice.HoverState.Parent = Me.txtPrice
-        Me.txtPrice.Location = New System.Drawing.Point(12, 134)
-        Me.txtPrice.Margin = New System.Windows.Forms.Padding(5)
-        Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtPrice.PlaceholderText = ""
-        Me.txtPrice.SelectedText = ""
-        Me.txtPrice.ShadowDecoration.Parent = Me.txtPrice
-        Me.txtPrice.Size = New System.Drawing.Size(275, 36)
-        Me.txtPrice.TabIndex = 27
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.White
-        Me.Label3.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(9, 41)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(95, 21)
-        Me.Label3.TabIndex = 26
-        Me.Label3.Text = "Item Name"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtItemName
-        '
-        Me.txtItemName.Animated = True
-        Me.txtItemName.BorderRadius = 5
-        Me.txtItemName.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtItemName.DefaultText = ""
-        Me.txtItemName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtItemName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtItemName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtItemName.DisabledState.Parent = Me.txtItemName
-        Me.txtItemName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtItemName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtItemName.FocusedState.Parent = Me.txtItemName
-        Me.txtItemName.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.txtItemName.ForeColor = System.Drawing.Color.Black
-        Me.txtItemName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtItemName.HoverState.Parent = Me.txtItemName
-        Me.txtItemName.Location = New System.Drawing.Point(12, 67)
-        Me.txtItemName.Margin = New System.Windows.Forms.Padding(5)
-        Me.txtItemName.Name = "txtItemName"
-        Me.txtItemName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtItemName.PlaceholderText = ""
-        Me.txtItemName.SelectedText = ""
-        Me.txtItemName.ShadowDecoration.Parent = Me.txtItemName
-        Me.txtItemName.Size = New System.Drawing.Size(275, 36)
-        Me.txtItemName.TabIndex = 25
         '
         'btnCancel
         '
@@ -193,7 +78,7 @@ Partial Class dlgAddItem
         Me.btnCancel.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.Black
         Me.btnCancel.HoverState.Parent = Me.btnCancel
-        Me.btnCancel.Location = New System.Drawing.Point(12, 249)
+        Me.btnCancel.Location = New System.Drawing.Point(11, 348)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.ShadowDecoration.Parent = Me.btnCancel
         Me.btnCancel.Size = New System.Drawing.Size(132, 36)
@@ -215,7 +100,7 @@ Partial Class dlgAddItem
         Me.btnAdd.HoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.btnAdd.HoverState.ForeColor = System.Drawing.Color.White
         Me.btnAdd.HoverState.Parent = Me.btnAdd
-        Me.btnAdd.Location = New System.Drawing.Point(156, 249)
+        Me.btnAdd.Location = New System.Drawing.Point(155, 348)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.ShadowDecoration.Parent = Me.btnAdd
         Me.btnAdd.Size = New System.Drawing.Size(132, 36)
@@ -236,11 +121,158 @@ Partial Class dlgAddItem
         Me.Label1.Text = "Add Item"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'cmbCategory
+        '
+        Me.cmbCategory.BackColor = System.Drawing.Color.Transparent
+        Me.cmbCategory.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCategory.FocusedColor = System.Drawing.Color.Empty
+        Me.cmbCategory.FocusedState.Parent = Me.cmbCategory
+        Me.cmbCategory.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbCategory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbCategory.FormattingEnabled = True
+        Me.cmbCategory.HoverState.Parent = Me.cmbCategory
+        Me.cmbCategory.ItemHeight = 30
+        Me.cmbCategory.Items.AddRange(New Object() {"Processor", "Motherboard", "Video Card", "Memory", "Power Supply", "Chassis"})
+        Me.cmbCategory.ItemsAppearance.Parent = Me.cmbCategory
+        Me.cmbCategory.Location = New System.Drawing.Point(10, 144)
+        Me.cmbCategory.Name = "cmbCategory"
+        Me.cmbCategory.ShadowDecoration.Parent = Me.cmbCategory
+        Me.cmbCategory.Size = New System.Drawing.Size(279, 36)
+        Me.cmbCategory.TabIndex = 37
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(6, 120)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(80, 21)
+        Me.Label4.TabIndex = 36
+        Me.Label4.Text = "Category"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(7, 254)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(54, 21)
+        Me.Label5.TabIndex = 35
+        Me.Label5.Text = "Stock"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'numStock
+        '
+        Me.numStock.BackColor = System.Drawing.Color.Transparent
+        Me.numStock.BorderRadius = 3
+        Me.numStock.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.numStock.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.numStock.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.numStock.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.numStock.DisabledState.Parent = Me.numStock
+        Me.numStock.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer), CType(CType(177, Byte), Integer))
+        Me.numStock.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer), CType(CType(203, Byte), Integer))
+        Me.numStock.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.numStock.FocusedState.Parent = Me.numStock
+        Me.numStock.Font = New System.Drawing.Font("Varela Round", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.numStock.ForeColor = System.Drawing.Color.Black
+        Me.numStock.Location = New System.Drawing.Point(11, 279)
+        Me.numStock.Margin = New System.Windows.Forms.Padding(4, 4, 4, 10)
+        Me.numStock.Name = "numStock"
+        Me.numStock.ShadowDecoration.Parent = Me.numStock
+        Me.numStock.Size = New System.Drawing.Size(279, 36)
+        Me.numStock.TabIndex = 34
+        Me.numStock.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.numStock.UpDownButtonForeColor = System.Drawing.Color.White
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(7, 187)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 21)
+        Me.Label2.TabIndex = 33
+        Me.Label2.Text = "Price"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtPrice
+        '
+        Me.txtPrice.Animated = True
+        Me.txtPrice.BorderRadius = 5
+        Me.txtPrice.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtPrice.DefaultText = ""
+        Me.txtPrice.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtPrice.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtPrice.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPrice.DisabledState.Parent = Me.txtPrice
+        Me.txtPrice.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtPrice.FocusedState.Parent = Me.txtPrice
+        Me.txtPrice.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.txtPrice.ForeColor = System.Drawing.Color.Black
+        Me.txtPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtPrice.HoverState.Parent = Me.txtPrice
+        Me.txtPrice.Location = New System.Drawing.Point(10, 213)
+        Me.txtPrice.Margin = New System.Windows.Forms.Padding(5)
+        Me.txtPrice.Name = "txtPrice"
+        Me.txtPrice.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtPrice.PlaceholderText = ""
+        Me.txtPrice.SelectedText = ""
+        Me.txtPrice.ShadowDecoration.Parent = Me.txtPrice
+        Me.txtPrice.Size = New System.Drawing.Size(279, 36)
+        Me.txtPrice.TabIndex = 32
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(7, 53)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(95, 21)
+        Me.Label3.TabIndex = 31
+        Me.Label3.Text = "Item Name"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtItemName
+        '
+        Me.txtItemName.Animated = True
+        Me.txtItemName.BorderRadius = 5
+        Me.txtItemName.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtItemName.DefaultText = ""
+        Me.txtItemName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtItemName.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtItemName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtItemName.DisabledState.Parent = Me.txtItemName
+        Me.txtItemName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtItemName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtItemName.FocusedState.Parent = Me.txtItemName
+        Me.txtItemName.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.txtItemName.ForeColor = System.Drawing.Color.Black
+        Me.txtItemName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtItemName.HoverState.Parent = Me.txtItemName
+        Me.txtItemName.Location = New System.Drawing.Point(10, 79)
+        Me.txtItemName.Margin = New System.Windows.Forms.Padding(5)
+        Me.txtItemName.Name = "txtItemName"
+        Me.txtItemName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtItemName.PlaceholderText = ""
+        Me.txtItemName.SelectedText = ""
+        Me.txtItemName.ShadowDecoration.Parent = Me.txtItemName
+        Me.txtItemName.Size = New System.Drawing.Size(279, 36)
+        Me.txtItemName.TabIndex = 30
+        '
         'dlgAddItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(300, 300)
+        Me.ClientSize = New System.Drawing.Size(300, 406)
         Me.Controls.Add(Me.pnlContainer)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
@@ -256,14 +288,16 @@ Partial Class dlgAddItem
 
     End Sub
     Friend WithEvents pnlContainer As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents btnCancel As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnAdd As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cmbCategory As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents numStock As Guna.UI2.WinForms.Guna2NumericUpDown
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtPrice As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtItemName As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents btnCancel As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents btnAdd As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents numStock As Guna.UI2.WinForms.Guna2NumericUpDown
 
 End Class
