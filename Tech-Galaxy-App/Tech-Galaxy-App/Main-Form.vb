@@ -40,8 +40,11 @@ Public Class frmMain
     End Sub
 
     Private Sub btnRemoveOrderItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemoveOrderItem.Click
-        If grdOrders.Rows.Count > 0 Then
-            grdOrders.Rows.Remove(grdOrders.SelectedRows(0))
+        Dim result = dlgConfirmation.ShowDialog()
+        If result = DialogResult.Yes Then
+            If grdOrders.Rows.Count > 0 Then
+                grdOrders.Rows.Remove(grdOrders.SelectedRows(0))
+            End If
         End If
     End Sub
     'method for table item to data grid view
@@ -72,6 +75,7 @@ Public Class frmMain
     Private Sub btnSignOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSignOut.Click
         Dim result = dlgConfirmation3.ShowDialog()
         If result = DialogResult.Yes Then
+            con.Close()
             frmLogin.Show()
             Me.Close()
         End If
@@ -95,7 +99,7 @@ Public Class frmMain
         txtSearch.Text = ""
     End Sub
     Private Sub btnFilterProcessor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterProcessor.Click
-        Dim r As String = "processors"
+        Dim r As String = "Processor"
         Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
@@ -106,7 +110,7 @@ Public Class frmMain
         txtSearch.Text = ""
     End Sub
     Private Sub btnFilterMotherboard_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterMotherboard.Click
-        Dim r As String = "motherboard"
+        Dim r As String = "Motherboard"
         Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
@@ -117,7 +121,7 @@ Public Class frmMain
         txtSearch.Text = ""
     End Sub
     Private Sub btnFilterVideoCard_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterVideoCard.Click
-        Dim r As String = "videoCard"
+        Dim r As String = "Video Card"
         Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
@@ -128,7 +132,7 @@ Public Class frmMain
         txtSearch.Text = ""
     End Sub
     Private Sub btnFilterMemory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterMemory.Click
-        Dim r As String = "memory"
+        Dim r As String = "Memory"
         Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
@@ -139,7 +143,7 @@ Public Class frmMain
         txtSearch.Text = ""
     End Sub
     Private Sub btnFilterPowerSupply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterPowerSupply.Click
-        Dim r As String = "powersupply"
+        Dim r As String = "Power Supply"
         Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
@@ -150,7 +154,7 @@ Public Class frmMain
         txtSearch.Text = ""
     End Sub
     Private Sub btnFilterChassis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterChassis.Click
-        Dim r As String = "chassis"
+        Dim r As String = "Chassis"
         Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
