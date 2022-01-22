@@ -21,6 +21,7 @@ Public Class frmLogin
     End Sub
 
     Public Sub DoSignIn()
+        con.Close()
         con.Open()
         Using cmd As New OleDbCommand("SELECT * FROM tbl_login WHERE username=@Username AND password=@Password", con)
             cmd.Parameters.AddWithValue("@Username", txtUsername.Text)
