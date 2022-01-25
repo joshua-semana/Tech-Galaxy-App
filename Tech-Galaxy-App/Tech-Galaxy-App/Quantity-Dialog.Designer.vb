@@ -23,10 +23,10 @@ Partial Class dlgQuantity
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlContainer = New Guna.UI2.WinForms.Guna2Panel()
+        Me.btnCancel = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAdd = New Guna.UI2.WinForms.Guna2Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.numQuantity = New Guna.UI2.WinForms.Guna2NumericUpDown()
-        Me.btnCancel = New Guna.UI2.WinForms.Guna2Button()
         Me.pnlContainer.SuspendLayout()
         CType(Me.numQuantity, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,6 +47,29 @@ Partial Class dlgQuantity
         Me.pnlContainer.ShadowDecoration.Parent = Me.pnlContainer
         Me.pnlContainer.Size = New System.Drawing.Size(300, 142)
         Me.pnlContainer.TabIndex = 0
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Animated = True
+        Me.btnCancel.BackColor = System.Drawing.Color.Transparent
+        Me.btnCancel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
+        Me.btnCancel.BorderRadius = 3
+        Me.btnCancel.BorderThickness = 1
+        Me.btnCancel.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnCancel.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnCancel.CheckedState.Parent = Me.btnCancel
+        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCancel.CustomImages.Parent = Me.btnCancel
+        Me.btnCancel.FillColor = System.Drawing.Color.White
+        Me.btnCancel.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnCancel.ForeColor = System.Drawing.Color.Black
+        Me.btnCancel.HoverState.Parent = Me.btnCancel
+        Me.btnCancel.Location = New System.Drawing.Point(12, 91)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.ShadowDecoration.Parent = Me.btnCancel
+        Me.btnCancel.Size = New System.Drawing.Size(132, 36)
+        Me.btnCancel.TabIndex = 15
+        Me.btnCancel.Text = "Cancel"
         '
         'btnAdd
         '
@@ -109,29 +132,6 @@ Partial Class dlgQuantity
         Me.numQuantity.UpDownButtonFillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.numQuantity.UpDownButtonForeColor = System.Drawing.Color.White
         Me.numQuantity.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Animated = True
-        Me.btnCancel.BackColor = System.Drawing.Color.Transparent
-        Me.btnCancel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(218, Byte), Integer), CType(CType(223, Byte), Integer))
-        Me.btnCancel.BorderRadius = 3
-        Me.btnCancel.BorderThickness = 1
-        Me.btnCancel.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.btnCancel.CheckedState.ForeColor = System.Drawing.Color.White
-        Me.btnCancel.CheckedState.Parent = Me.btnCancel
-        Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCancel.CustomImages.Parent = Me.btnCancel
-        Me.btnCancel.FillColor = System.Drawing.Color.White
-        Me.btnCancel.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.btnCancel.ForeColor = System.Drawing.Color.Black
-        Me.btnCancel.HoverState.Parent = Me.btnCancel
-        Me.btnCancel.Location = New System.Drawing.Point(12, 91)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.ShadowDecoration.Parent = Me.btnCancel
-        Me.btnCancel.Size = New System.Drawing.Size(132, 36)
-        Me.btnCancel.TabIndex = 15
-        Me.btnCancel.Text = "Cancel"
         '
         'dlgQuantity
         '

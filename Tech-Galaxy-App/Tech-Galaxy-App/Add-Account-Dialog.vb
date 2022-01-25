@@ -10,8 +10,23 @@
     End Sub
 
     Public Sub AddAccount()
-        'Add Account to Database
+        Using cmd As New OleDb.OleDbCommand("INSERT INTO tbl_login ([username], [password], [firstname], [lastname], [status]) VALUES (?, ?, ?, ?, ?)", con)
+            With cmd.Parameters
+                .AddWithValue("@username", txtUsername.Text)
+                .AddWithValue("@password", txtPassword.Text)
+                .AddWithValue("@firstname", txtFirstname.Text)
+                .AddWithValue("@lastname", txtLastname.Text)
+                If tglAsAnAdmin.Checked = True Then
+                    .AddWithValue("@status", "admin")
+                Else
+                    .AddWithValue("@status", "user")
+                End If
+            End With
+            cmd.ExecuteReader()
+        End Using
+        MessageBox.Show("You have successfully created a new account.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         ClearData()
+        Me.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.Close()
     End Sub
 

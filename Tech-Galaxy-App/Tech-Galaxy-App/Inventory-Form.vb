@@ -137,13 +137,11 @@ Public Class frmInventory
             Dim dt As New DataTable
             da.Fill(dt)
             grdItems.DataSource = dt.DefaultView
-            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         End Using
     End Sub
     'filters
     Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown
         If e.KeyCode = Keys.Enter Then
-            'Do Search
             Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE item_name LIKE '%" + txtSearch.Text + "%'", con)
                 Dim dt As New DataTable
                 dt.Clear()

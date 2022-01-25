@@ -1,8 +1,9 @@
 ﻿Imports System.Data.OleDb
 Public Class frmMain
-    'Populate grdItems
+
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         populate()
+        lblDate.Text = Format(Date.Now(), "D")
     End Sub
 
     Public Sub EnableNavigation()
@@ -18,14 +19,25 @@ Public Class frmMain
     End Sub
 
     Private Sub btnAddToOrder_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddToOrder.Click
-        dlgQuantity.ShowDialog()
-        grdOrders.Rows.Add(New String() {"AMD Ryzen 3", "P1,000", "5"})
+        Dim result = dlgQuantity.ShowDialog()
+        If result = Windows.Forms.DialogResult.Yes Then
+            Dim quantity As Integer = dlgQuantity.numQuantity.Value
+            Dim item As String = grdItems.SelectedCells(0).Value
+            Dim subtotal As Integer = grdItems.SelectedCells(2).Value * quantity
+            Dim total As Integer = subtotal + lblTotal.Text
+            If quantity <> 0 Then
+                grdOrders.Rows.Add(quantity, item, subtotal)
+                lblTotal.Text = total
+            End If
+        End If
     End Sub
 
     Private Sub btnClearOrder_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClearOrder.Click
         Dim result = dlgConfirmation.ShowDialog()
         If result = DialogResult.Yes Then
             grdOrders.Rows.Clear()
+            lblTotal.Text = 0
+            populate()
         End If
     End Sub
 
@@ -43,6 +55,7 @@ Public Class frmMain
         Dim result = dlgConfirmation.ShowDialog()
         If result = DialogResult.Yes Then
             If grdOrders.Rows.Count > 0 Then
+                lblTotal.Text = lblTotal.Text - grdOrders.SelectedCells(2).Value
                 grdOrders.Rows.Remove(grdOrders.SelectedRows(0))
             End If
         End If
@@ -83,7 +96,6 @@ Public Class frmMain
     'search btn
     Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown
         If e.KeyCode = Keys.Enter Then
-            'Do Search
             Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE item_name LIKE '%" + txtSearch.Text + "%'", con)
                 Dim dt As New DataTable
                 dt.Clear()

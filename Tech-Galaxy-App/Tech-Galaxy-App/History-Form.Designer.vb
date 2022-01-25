@@ -26,6 +26,7 @@ Partial Class frmHistory
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnSignOut = New Guna.UI2.WinForms.Guna2Button()
         Me.btnInventory = New Guna.UI2.WinForms.Guna2Button()
         Me.btnHistory = New Guna.UI2.WinForms.Guna2Button()
         Me.btnSetting = New Guna.UI2.WinForms.Guna2Button()
@@ -40,7 +41,6 @@ Partial Class frmHistory
         Me.grdTransactions = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.colOrderNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colItems = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnSignOut = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -61,6 +61,25 @@ Partial Class frmHistory
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(50, 640)
         Me.Panel1.TabIndex = 1
+        '
+        'btnSignOut
+        '
+        Me.btnSignOut.Animated = True
+        Me.btnSignOut.BorderRadius = 3
+        Me.btnSignOut.CheckedState.FillColor = System.Drawing.Color.LightGray
+        Me.btnSignOut.CheckedState.Parent = Me.btnSignOut
+        Me.btnSignOut.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnSignOut.CustomImages.Parent = Me.btnSignOut
+        Me.btnSignOut.FillColor = System.Drawing.Color.Transparent
+        Me.btnSignOut.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btnSignOut.ForeColor = System.Drawing.Color.White
+        Me.btnSignOut.HoverState.Parent = Me.btnSignOut
+        Me.btnSignOut.Image = Global.Tech_Galaxy.My.Resources.Resources.icons8_logout_50
+        Me.btnSignOut.Location = New System.Drawing.Point(8, 592)
+        Me.btnSignOut.Name = "btnSignOut"
+        Me.btnSignOut.ShadowDecoration.Parent = Me.btnSignOut
+        Me.btnSignOut.Size = New System.Drawing.Size(35, 35)
+        Me.btnSignOut.TabIndex = 22
         '
         'btnInventory
         '
@@ -169,7 +188,7 @@ Partial Class frmHistory
         Me.lblDate.Name = "lblDate"
         Me.lblDate.Size = New System.Drawing.Size(167, 21)
         Me.lblDate.TabIndex = 6
-        Me.lblDate.Text = "Friday, 14 Jan 2022"
+        Me.lblDate.Text = "Date"
         Me.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label3
@@ -338,25 +357,6 @@ Partial Class frmHistory
         Me.colItems.HeaderText = "Items"
         Me.colItems.Name = "colItems"
         Me.colItems.ReadOnly = True
-        '
-        'btnSignOut
-        '
-        Me.btnSignOut.Animated = True
-        Me.btnSignOut.BorderRadius = 3
-        Me.btnSignOut.CheckedState.FillColor = System.Drawing.Color.LightGray
-        Me.btnSignOut.CheckedState.Parent = Me.btnSignOut
-        Me.btnSignOut.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnSignOut.CustomImages.Parent = Me.btnSignOut
-        Me.btnSignOut.FillColor = System.Drawing.Color.Transparent
-        Me.btnSignOut.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.btnSignOut.ForeColor = System.Drawing.Color.White
-        Me.btnSignOut.HoverState.Parent = Me.btnSignOut
-        Me.btnSignOut.Image = Global.Tech_Galaxy.My.Resources.Resources.icons8_logout_50
-        Me.btnSignOut.Location = New System.Drawing.Point(8, 592)
-        Me.btnSignOut.Name = "btnSignOut"
-        Me.btnSignOut.ShadowDecoration.Parent = Me.btnSignOut
-        Me.btnSignOut.Size = New System.Drawing.Size(35, 35)
-        Me.btnSignOut.TabIndex = 22
         '
         'frmHistory
         '

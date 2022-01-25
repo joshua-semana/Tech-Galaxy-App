@@ -43,6 +43,18 @@
         txtConfirmPassword.Visible = False
     End Sub
 
+    Public Sub Populate()
+        Using adp As New OleDb.OleDbDataAdapter("SELECT ID AS User_ID, username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_login", con)
+            Dim dt As New DataTable
+            adp.Fill(dt)
+            grdAccounts.DataSource = dt.DefaultView
+        End Using
+    End Sub
+
+    Private Sub frmAccount_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Populate()
+    End Sub
+
     Private Sub btnEdit_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.CheckedChanged
         If btnEdit.Checked.Equals(True) Then
             EnableEdit()
@@ -57,7 +69,13 @@
 
     Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown
         If e.KeyCode = Keys.Enter Then
-            'Do Search
+            Using adp As New OleDb.OleDbDataAdapter("SELECT ID AS User_ID, username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_login WHERE username LIKE '%" + txtSearch.Text + "%'", con)
+                Dim dt As New DataTable
+                dt.Clear()
+                adp.Fill(dt)
+                grdAccounts.DataSource = dt.DefaultView
+                grdAccounts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            End Using
         End If
     End Sub
 
@@ -77,7 +95,10 @@
     End Sub
 
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
-        dlgAddAccount.ShowDialog()
+        Dim result = dlgAddAccount.ShowDialog()
+        If result = Windows.Forms.DialogResult.Yes Then
+            Populate()
+        End If
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
@@ -88,24 +109,45 @@
                 MessageBox.Show("Pssword do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 UpdateAccount()
+                btnEdit.Checked = False
+                Populate()
             End If
         End If
     End Sub
 
     Public Sub UpdateAccount()
-
+        Using cmd As New OleDb.OleDbCommand("UPDATE tbl_login SET [username] = @user, [password] = @pass, [firstname] = @first, [lastname] = @last WHERE ID = @id", con)
+            With cmd.Parameters
+                .AddWithValue("@user", txtUsername.Text)
+                .AddWithValue("@pass", txtPassword.Text)
+                .AddWithValue("@first", txtFirstname.Text)
+                .AddWithValue("@last", txtLastname.Text)
+                .AddWithValue("@id", grdAccounts.SelectedCells(0).Value)
+            End With
+            Dim result = cmd.ExecuteNonQuery
+            If result > 0 Then
+                MessageBox.Show("Information has been updated.", "Notice", MessageBoxButtons.OK)
+            End If
+        End Using
     End Sub
 
     Private Sub btnRemoveAccount_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemoveAccount.Click
         Dim result = dlgConfirmation2.ShowDialog()
         If result = DialogResult.Yes Then
-            'Remove Account Confirm
+            RemoveAccount()
             btnEdit.Checked = False
+            Populate()
         End If
     End Sub
 
     Public Sub RemoveAccount()
-
+        Using cmd As New OleDb.OleDbCommand("DELETE FROM tbl_login WHERE ID = @id", con)
+            cmd.Parameters.AddWithValue("@id", grdAccounts.SelectedCells(0).Value)
+            Dim result = cmd.ExecuteNonQuery()
+            If result > 0 Then
+                MessageBox.Show("User account has been deleted.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End Using
     End Sub
 
     Private Sub btnSignOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSignOut.Click
@@ -121,5 +163,24 @@
             lblConfirm.Visible = True
             txtConfirmPassword.Visible = True
         End If
+    End Sub
+
+    Private Sub grdAccounts_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdAccounts.CellClick
+        Using cmd As New OleDb.OleDbCommand("SELECT * FROM tbl_login WHERE ID = @id", con)
+            cmd.Parameters.AddWithValue("@id", grdAccounts.SelectedCells(0).Value.ToString)
+            Dim result = cmd.ExecuteScalar()
+            If result > 0 Then
+                Dim rdr As OleDb.OleDbDataReader
+                rdr = cmd.ExecuteReader
+                rdr.Read()
+                If rdr.HasRows Then
+                    txtUsername.Text = rdr.Item(1).ToString
+                    txtFirstname.Text = rdr.Item(3).ToString
+                    txtLastname.Text = rdr.Item(4).ToString
+                    txtPassword.Text = rdr.Item(2).ToString
+                    txtConfirmPassword.Text = txtPassword.Text
+                End If
+            End If
+        End Using
     End Sub
 End Class
