@@ -35,7 +35,7 @@ Partial Class frmAccount
         Me.lblHeader = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnRemoveAccount = New Guna.UI2.WinForms.Guna2Button()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblConfirm = New System.Windows.Forms.Label()
         Me.txtConfirmPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
@@ -196,7 +196,7 @@ Partial Class frmAccount
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
         Me.Panel2.Controls.Add(Me.btnRemoveAccount)
-        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.lblConfirm)
         Me.Panel2.Controls.Add(Me.txtConfirmPassword)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.txtPassword)
@@ -237,17 +237,18 @@ Partial Class frmAccount
         Me.btnRemoveAccount.Text = "Remove"
         Me.btnRemoveAccount.Visible = False
         '
-        'Label6
+        'lblConfirm
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(7, 316)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(151, 21)
-        Me.Label6.TabIndex = 24
-        Me.Label6.Text = "Confirm Password"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblConfirm.AutoSize = True
+        Me.lblConfirm.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.lblConfirm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.lblConfirm.Location = New System.Drawing.Point(7, 316)
+        Me.lblConfirm.Name = "lblConfirm"
+        Me.lblConfirm.Size = New System.Drawing.Size(151, 21)
+        Me.lblConfirm.TabIndex = 24
+        Me.lblConfirm.Text = "Confirm Password"
+        Me.lblConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblConfirm.Visible = False
         '
         'txtConfirmPassword
         '
@@ -277,6 +278,7 @@ Partial Class frmAccount
         Me.txtConfirmPassword.Size = New System.Drawing.Size(279, 36)
         Me.txtConfirmPassword.TabIndex = 23
         Me.txtConfirmPassword.UseSystemPasswordChar = True
+        Me.txtConfirmPassword.Visible = False
         '
         'Label4
         '
@@ -696,7 +698,7 @@ Partial Class frmAccount
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents grdAccounts As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents lblConfirm As System.Windows.Forms.Label
     Friend WithEvents txtConfirmPassword As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtPassword As Guna.UI2.WinForms.Guna2TextBox

@@ -38,6 +38,9 @@
         btnMain.Enabled = True
         btnInventory.Enabled = True
         btnHistory.Enabled = True
+
+        lblConfirm.Visible = False
+        txtConfirmPassword.Visible = False
     End Sub
 
     Private Sub btnEdit_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.CheckedChanged
@@ -110,6 +113,13 @@
         If result = DialogResult.Yes Then
             frmLogin.Show()
             Me.Close()
+        End If
+    End Sub
+
+    Private Sub txtPassword_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtPassword.TextChanged
+        If txtPassword.Enabled = True Then
+            lblConfirm.Visible = True
+            txtConfirmPassword.Visible = True
         End If
     End Sub
 End Class

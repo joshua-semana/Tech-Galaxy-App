@@ -22,9 +22,9 @@ Partial Class frmInventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnSignOut = New Guna.UI2.WinForms.Guna2Button()
         Me.btnInventory = New Guna.UI2.WinForms.Guna2Button()
@@ -33,6 +33,7 @@ Partial Class frmInventory
         Me.btnMain = New Guna.UI2.WinForms.Guna2Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtID = New Guna.UI2.WinForms.Guna2TextBox()
         Me.cmbCategory = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnRemoveItem = New Guna.UI2.WinForms.Guna2Button()
@@ -58,7 +59,6 @@ Partial Class frmInventory
         Me.grdItems = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.btnAdd = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAddStock = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtID = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -210,9 +210,40 @@ Partial Class frmInventory
         Me.Panel2.Size = New System.Drawing.Size(300, 640)
         Me.Panel2.TabIndex = 2
         '
+        'txtID
+        '
+        Me.txtID.Animated = True
+        Me.txtID.BorderRadius = 5
+        Me.txtID.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtID.DefaultText = ""
+        Me.txtID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtID.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtID.DisabledState.Parent = Me.txtID
+        Me.txtID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtID.Enabled = False
+        Me.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtID.FocusedState.Parent = Me.txtID
+        Me.txtID.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.txtID.ForeColor = System.Drawing.Color.Black
+        Me.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtID.HoverState.Parent = Me.txtID
+        Me.txtID.Location = New System.Drawing.Point(12, 570)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(5)
+        Me.txtID.Name = "txtID"
+        Me.txtID.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtID.PlaceholderText = ""
+        Me.txtID.SelectedText = ""
+        Me.txtID.ShadowDecoration.Parent = Me.txtID
+        Me.txtID.Size = New System.Drawing.Size(10, 10)
+        Me.txtID.TabIndex = 30
+        Me.txtID.Visible = False
+        '
         'cmbCategory
         '
+        Me.cmbCategory.Animated = True
         Me.cmbCategory.BackColor = System.Drawing.Color.Transparent
+        Me.cmbCategory.BorderRadius = 3
         Me.cmbCategory.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -652,31 +683,31 @@ Partial Class frmInventory
         Me.grdItems.AllowUserToOrderColumns = True
         Me.grdItems.AllowUserToResizeColumns = False
         Me.grdItems.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.grdItems.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.grdItems.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.grdItems.BackgroundColor = System.Drawing.Color.White
         Me.grdItems.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.grdItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.grdItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.grdItems.Cursor = System.Windows.Forms.Cursors.Arrow
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.grdItems.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.grdItems.DefaultCellStyle = DataGridViewCellStyle3
         Me.grdItems.EnableHeadersVisualStyles = False
         Me.grdItems.GridColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
         Me.grdItems.Location = New System.Drawing.Point(61, 126)
@@ -755,35 +786,6 @@ Partial Class frmInventory
         Me.btnAddStock.Size = New System.Drawing.Size(103, 28)
         Me.btnAddStock.TabIndex = 27
         Me.btnAddStock.Text = "Add Stock"
-        '
-        'txtID
-        '
-        Me.txtID.Animated = True
-        Me.txtID.BorderRadius = 5
-        Me.txtID.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtID.DefaultText = ""
-        Me.txtID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtID.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtID.DisabledState.Parent = Me.txtID
-        Me.txtID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtID.Enabled = False
-        Me.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtID.FocusedState.Parent = Me.txtID
-        Me.txtID.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.txtID.ForeColor = System.Drawing.Color.Black
-        Me.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtID.HoverState.Parent = Me.txtID
-        Me.txtID.Location = New System.Drawing.Point(12, 570)
-        Me.txtID.Margin = New System.Windows.Forms.Padding(5)
-        Me.txtID.Name = "txtID"
-        Me.txtID.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtID.PlaceholderText = ""
-        Me.txtID.SelectedText = ""
-        Me.txtID.ShadowDecoration.Parent = Me.txtID
-        Me.txtID.Size = New System.Drawing.Size(10, 10)
-        Me.txtID.TabIndex = 30
-        Me.txtID.Visible = False
         '
         'frmInventory
         '

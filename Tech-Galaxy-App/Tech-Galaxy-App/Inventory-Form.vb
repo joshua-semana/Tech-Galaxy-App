@@ -244,7 +244,7 @@ Public Class frmInventory
         Using cmd As New OleDbCommand("UPDATE tbl_exampleitems SET [item_name] = '" & txtItemName.Text & "', [category] = '" & cmbCategory.Text & "', [price] = '" & txtPrice.Text & "', [stock] = '" & numStock.Value & "' WHERE [ID] = @ID", con)
             cmd.Parameters.Add("@ID", OleDbType.Integer).Value = txtID.Text.Trim
             cmd.ExecuteNonQuery()
-            Dim result = MessageBox.Show("Item Updated!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim result = MessageBox.Show("Item Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
             If result = DialogResult.OK Then
                 btnCancel.PerformClick()
             End If
@@ -254,4 +254,5 @@ Public Class frmInventory
     Private Sub btnInventory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInventory.Click
         Populate()
     End Sub
+
 End Class
