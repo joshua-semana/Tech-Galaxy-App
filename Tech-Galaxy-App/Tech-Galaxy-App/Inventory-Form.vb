@@ -133,7 +133,7 @@ Public Class frmInventory
     End Sub
 
     Public Sub Populate()
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems", con)
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items", con)
             Dim dt As New DataTable
             da.Fill(dt)
             grdItems.DataSource = dt.DefaultView
@@ -142,7 +142,7 @@ Public Class frmInventory
     'filters
     Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown
         If e.KeyCode = Keys.Enter Then
-            Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE item_name LIKE '%" + txtSearch.Text + "%'", con)
+            Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE item_name LIKE '%" + txtSearch.Text + "%'", con)
                 Dim dt As New DataTable
                 dt.Clear()
                 da.Fill(dt)
@@ -157,7 +157,7 @@ Public Class frmInventory
     End Sub
     Private Sub btnFilterProcessor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterProcessor.Click
         Dim r As String = "Processor"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
             da.Fill(dt)
@@ -168,7 +168,7 @@ Public Class frmInventory
     End Sub
     Private Sub btnFilterMotherboard_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterMotherboard.Click
         Dim r As String = "Motherboard"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
             da.Fill(dt)
@@ -179,7 +179,7 @@ Public Class frmInventory
     End Sub
     Private Sub btnFilterVideoCard_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterVideoCard.Click
         Dim r As String = "Video Card"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
             da.Fill(dt)
@@ -190,7 +190,7 @@ Public Class frmInventory
     End Sub
     Private Sub btnFilterMemory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterMemory.Click
         Dim r As String = "Memory"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
             da.Fill(dt)
@@ -201,7 +201,7 @@ Public Class frmInventory
     End Sub
     Private Sub btnFilterPowerSupply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterPowerSupply.Click
         Dim r As String = "Power Supply"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
             da.Fill(dt)
@@ -212,7 +212,7 @@ Public Class frmInventory
     End Sub
     Private Sub btnFilterChassis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterChassis.Click
         Dim r As String = "Chassis"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_exampleitems WHERE category LIKE '%" + r + "%'", con)
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
             da.Fill(dt)

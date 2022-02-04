@@ -1,4 +1,5 @@
-﻿Public Class frmUserMain
+﻿Imports System.Data.OleDb
+Public Class frmUserMain
 
     Private Sub btnAddToOrder_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddToOrder.Click
         dlgQuantity.ShowDialog()
@@ -25,4 +26,15 @@
         End If
     End Sub
 
+    Private Sub frmUserMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Populate()
+    End Sub
+
+    Public Sub Populate()
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items", con)
+            Dim dt As New DataTable
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+        End Using
+    End Sub
 End Class
