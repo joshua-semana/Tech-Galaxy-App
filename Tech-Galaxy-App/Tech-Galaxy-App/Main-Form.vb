@@ -25,9 +25,13 @@ Public Class frmMain
             Dim item As String = grdItems.SelectedCells(0).Value
             Dim subtotal As Integer = grdItems.SelectedCells(2).Value * quantity
             Dim total As Integer = subtotal + lblTotal.Text
+            Dim vat As Integer = total * 0.02
+            Dim Gtotal As Integer = vat + total
             If quantity <> 0 Then
                 grdOrders.Rows.Add(quantity, item, subtotal)
                 lblTotal.Text = total
+                lblVAT.Text = vat
+                lblGtotal.Text = Gtotal
             End If
         End If
     End Sub
@@ -37,6 +41,8 @@ Public Class frmMain
         If result = DialogResult.Yes Then
             grdOrders.Rows.Clear()
             lblTotal.Text = 0
+            lblVAT.Text = 0
+            lblGtotal.Text = 0
             populate()
         End If
     End Sub
