@@ -58,6 +58,10 @@ Partial Class frmMain
         Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colOrderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colSubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblVAT = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblGtotal = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -189,8 +193,12 @@ Partial Class frmMain
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.btnRemoveOrderItem)
         Me.Panel2.Controls.Add(Me.btnClearOrder)
+        Me.Panel2.Controls.Add(Me.lblVAT)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.lblGtotal)
         Me.Panel2.Controls.Add(Me.lblTotal)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.btnAddToOrder)
@@ -246,7 +254,7 @@ Partial Class frmMain
         '
         Me.lblTotal.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.lblTotal.ForeColor = System.Drawing.Color.Black
-        Me.lblTotal.Location = New System.Drawing.Point(86, 510)
+        Me.lblTotal.Location = New System.Drawing.Point(86, 473)
         Me.lblTotal.Name = "lblTotal"
         Me.lblTotal.Size = New System.Drawing.Size(212, 29)
         Me.lblTotal.TabIndex = 14
@@ -258,7 +266,7 @@ Partial Class frmMain
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(7, 518)
+        Me.Label4.Location = New System.Drawing.Point(7, 481)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(48, 21)
         Me.Label4.TabIndex = 12
@@ -634,7 +642,7 @@ Partial Class frmMain
         Me.grdOrders.RowTemplate.Height = 30
         Me.grdOrders.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.grdOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grdOrders.Size = New System.Drawing.Size(279, 458)
+        Me.grdOrders.Size = New System.Drawing.Size(279, 382)
         Me.grdOrders.TabIndex = 13
         Me.grdOrders.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.[Default]
         Me.grdOrders.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
@@ -679,6 +687,52 @@ Partial Class frmMain
         Me.colSubTotal.HeaderText = "Sub-Total"
         Me.colSubTotal.Name = "colSubTotal"
         Me.colSubTotal.ReadOnly = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.Location = New System.Drawing.Point(7, 444)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(41, 21)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "VAT"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblVAT
+        '
+        Me.lblVAT.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.lblVAT.ForeColor = System.Drawing.Color.Black
+        Me.lblVAT.Location = New System.Drawing.Point(86, 436)
+        Me.lblVAT.Name = "lblVAT"
+        Me.lblVAT.Size = New System.Drawing.Size(212, 29)
+        Me.lblVAT.TabIndex = 14
+        Me.lblVAT.Text = "0"
+        Me.lblVAT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Black
+        Me.Label2.Location = New System.Drawing.Point(7, 518)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(99, 21)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Grand Total"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblGtotal
+        '
+        Me.lblGtotal.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.lblGtotal.ForeColor = System.Drawing.Color.Black
+        Me.lblGtotal.Location = New System.Drawing.Point(86, 510)
+        Me.lblGtotal.Name = "lblGtotal"
+        Me.lblGtotal.Size = New System.Drawing.Size(212, 29)
+        Me.lblGtotal.TabIndex = 14
+        Me.lblGtotal.Text = "0"
+        Me.lblGtotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'frmMain
         '
@@ -744,4 +798,8 @@ Partial Class frmMain
     Friend WithEvents btnSetting As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSignOut As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnRemoveOrderItem As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lblVAT As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lblGtotal As System.Windows.Forms.Label
 End Class
