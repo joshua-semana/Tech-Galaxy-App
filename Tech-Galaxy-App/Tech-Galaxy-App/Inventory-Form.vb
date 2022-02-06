@@ -3,6 +3,7 @@ Public Class frmInventory
 
     Private Sub frmInventory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Populate()
+        btnInventory.PerformClick()
     End Sub
     Public Sub EnableEdit()
         txtID.Enabled = True
@@ -122,7 +123,7 @@ Public Class frmInventory
     End Sub
 
     Public Sub RemoveItem()
-        Using cmd As New OleDbCommand("DELETE FROM tbl_exampleitems WHERE [ID] = @ID", con)
+        Using cmd As New OleDbCommand("DELETE FROM tbl_items WHERE [ID] = @ID", con)
             cmd.Parameters.Add("@ID", OleDbType.Integer).Value = txtID.Text.Trim
             If cmd.ExecuteNonQuery() Then
                 Dim result = MessageBox.Show("Item Deleted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -185,7 +186,7 @@ Public Class frmInventory
         Filter("Power Supply")
     End Sub
     Private Sub btnFilterOthers_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterOthers.Click
-        Filter("Processor")
+        Filter("Others")
     End Sub
 
     Private Sub grdItems_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdItems.CellClick
@@ -205,11 +206,17 @@ Public Class frmInventory
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        Using cmd As New OleDbCommand("UPDATE tbl_exampleitems SET [item_name] = '" & txtItemName.Text & "', [category] = '" & cmbCategory.Text & "', [price] = '" & txtPrice.Text & "', [stock] = '" & numStock.Value & "' WHERE [ID] = @ID", con)
-            cmd.Parameters.Add("@ID", OleDbType.Integer).Value = txtID.Text.Trim
-            cmd.ExecuteNonQuery()
-            Dim result = MessageBox.Show("Item Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            If result = DialogResult.OK Then
+        Using cmd As New OleDb.OleDbCommand("UPDATE tbl_items SET [item_name] = @item, [category] = @category, [price] = @price, [stock] = @stock WHERE ID = @id", con)
+            With cmd.Parameters
+                .AddWithValue("@item", txtItemName.Text)
+                .AddWithValue("@@category", cmbCategory.Text)
+                .AddWithValue("@price", txtPrice.Text)
+                .AddWithValue("@stock", numStock.Value)
+                .AddWithValue("@id", grdItems.SelectedCells(0).Value)
+            End With
+            Dim result = cmd.ExecuteNonQuery
+            If result > 0 Then
+                MessageBox.Show("Information has been updated.", "Notice", MessageBoxButtons.OK)
                 btnCancel.PerformClick()
             End If
         End Using

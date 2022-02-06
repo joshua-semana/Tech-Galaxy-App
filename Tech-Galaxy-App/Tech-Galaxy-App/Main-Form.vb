@@ -4,6 +4,7 @@ Public Class frmMain
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         populate()
         lblDate.Text = Format(Date.Now(), "D")
+        StoreDate = Date.Now.ToString("MM-dd-yyyy")
     End Sub
 
     Public Sub EnableNavigation()

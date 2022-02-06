@@ -21,13 +21,19 @@ Public Class dlgAddItem
 
     Public Sub AddItem()
         ClearData()
-        Using cmd As New OleDbCommand("INSERT INTO tbl_exampleitems ([item_name],[category],[price],[stock]) VALUES('" & txtItemName.Text & "','" & cmbCategory.Text & "','" & txtPrice.Text & "','" & numStock.Value & "')", con)
-            If txtItemName.Text = Nothing And cmbCategory.Text = Nothing And txtPrice.Text = Nothing And numStock.Value = 0 Then
-                MsgBox("Please fill the required Information", MsgBoxStyle.Exclamation)
-                Exit Sub
+        Using cmd As New OleDbCommand("INSERT INTO tbl_items ([ID], [item_name],[category],[price],[stock]) VALUES(@ID, @item_name, @category, @price, @stock)", con)
+            If txtItemName.Text = "" And cmbCategory.Text = "" And txtPrice.Text = "" And numStock.Value = 0 Then
+                With cmd.Parameters
+                    .AddWithValue("@ID", lblPrefix.Text.Substring(0, 2) + txtID.Text)
+                    .AddWithValue("@item_name", txtItemName.Text)
+                    .AddWithValue("@category", cmbCategory.Text)
+                    .AddWithValue("@price", txtPrice.Text)
+                    .AddWithValue("@stock", numStock.Value)
+                End With
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("You have successfully created a new item.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                'cmd.ExecuteReader()
             End If
-            MsgBox("Data has been inserted successfully", MsgBoxStyle.Information)
-            cmd.ExecuteNonQuery()
         End Using
         Me.Close()
     End Sub

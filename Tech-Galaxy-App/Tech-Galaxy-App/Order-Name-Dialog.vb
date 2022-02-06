@@ -6,6 +6,7 @@ Public Class dlgOrderName
         If txtName.Text = "" Then
             MessageBox.Show("Please enter the buyers name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
+
             Me.DialogResult = System.Windows.Forms.DialogResult.Yes
             Me.Close()
         End If
