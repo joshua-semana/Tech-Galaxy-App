@@ -1,12 +1,27 @@
 ﻿Imports System.Windows.Forms
-
+Imports System.Data.OleDb
 Public Class dlgOrderName
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCheckOut.Click
         If txtName.Text = "" Then
             MessageBox.Show("Please enter the buyers name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
-
+            Using cmd As New OleDbCommand("INSERT INTO tbl_transaction ([order_ID], [name], [Item], [date], [total], [vat]) VALUES(@ID, @name, @item, @date, @total, @vat)", con)
+                With cmd.Parameters
+                    .AddWithValue("@ID", frmMain.lblOrderNumber.Text)
+                    .AddWithValue("@name", txtName.Text)
+                    Dim Items As String = ""
+                    For Each orders As DataGridViewRow In frmMain.grdOrders.Rows
+                        Items = Items + orders.Cells(0).Value.ToString + "x " + orders.Cells(2).Value.ToString + " "
+                    Next
+                    .AddWithValue("@item", Items)
+                    .AddWithValue("@date", StoreDate)
+                    .AddWithValue("@total", frmMain.lblGtotal.Text)
+                    .AddWithValue("@vat", frmMain.lblVAT.Text)
+                End With
+                cmd.ExecuteReader()
+                MessageBox.Show("successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Using
             Me.DialogResult = System.Windows.Forms.DialogResult.Yes
             Me.Close()
         End If

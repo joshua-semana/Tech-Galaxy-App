@@ -61,6 +61,7 @@ Partial Class frmMain
         Me.grdItems = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.grdOrders = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colOrderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colSubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
@@ -388,9 +389,9 @@ Partial Class frmMain
         Me.lblOrderNumber.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.lblOrderNumber.Location = New System.Drawing.Point(56, 14)
         Me.lblOrderNumber.Name = "lblOrderNumber"
-        Me.lblOrderNumber.Size = New System.Drawing.Size(177, 29)
+        Me.lblOrderNumber.Size = New System.Drawing.Size(55, 29)
         Me.lblOrderNumber.TabIndex = 2
-        Me.lblOrderNumber.Text = "Order No. #001"
+        Me.lblOrderNumber.Text = "001"
         '
         'lblDate
         '
@@ -675,7 +676,7 @@ Partial Class frmMain
         DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdOrders.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.grdOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.grdOrders.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colQuantity, Me.colOrderName, Me.colSubTotal})
+        Me.grdOrders.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colQuantity, Me.colID, Me.colOrderName, Me.colSubTotal})
         Me.grdOrders.Cursor = System.Windows.Forms.Cursors.Arrow
         DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
@@ -730,6 +731,12 @@ Partial Class frmMain
         Me.colQuantity.HeaderText = "#"
         Me.colQuantity.Name = "colQuantity"
         Me.colQuantity.ReadOnly = True
+        '
+        'colID
+        '
+        Me.colID.HeaderText = "ID"
+        Me.colID.Name = "colID"
+        Me.colID.ReadOnly = True
         '
         'colOrderName
         '
@@ -800,9 +807,6 @@ Partial Class frmMain
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents grdItems As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents grdOrders As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents colQuantity As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colOrderName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colSubTotal As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnMain As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnInventory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnHistory As Guna.UI2.WinForms.Guna2Button
@@ -814,4 +818,8 @@ Partial Class frmMain
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lblGtotal As System.Windows.Forms.Label
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents colQuantity As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colID As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colOrderName As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colSubTotal As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

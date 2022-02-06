@@ -872,7 +872,6 @@ Partial Class frmInventory
     Friend WithEvents txtPrice As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents numStock As Guna.UI2.WinForms.Guna2NumericUpDown
     Friend WithEvents btnInventory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnHistory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSetting As Guna.UI2.WinForms.Guna2Button
@@ -886,4 +885,5 @@ Partial Class frmInventory
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtID As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents lblPrefix As System.Windows.Forms.Label
+    Public WithEvents numStock As Guna.UI2.WinForms.Guna2NumericUpDown
 End Class

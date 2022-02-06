@@ -124,7 +124,7 @@ Public Class frmInventory
 
     Public Sub RemoveItem()
         Using cmd As New OleDbCommand("DELETE FROM tbl_items WHERE [ID] = @ID", con)
-            cmd.Parameters.Add("@ID", OleDbType.Integer).Value = txtID.Text.Trim
+            cmd.Parameters.AddWithValue("@ID", grdItems.SelectedCells(0).Value)
             If cmd.ExecuteNonQuery() Then
                 Dim result = MessageBox.Show("Item Deleted!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 If result = DialogResult.OK Then
@@ -140,6 +140,7 @@ Public Class frmInventory
             Dim dt As New DataTable
             da.Fill(dt)
             grdItems.DataSource = dt.DefaultView
+            grdItems.Sort(grdItems.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
         End Using
     End Sub
     'filters
@@ -223,7 +224,7 @@ Public Class frmInventory
     End Sub
 
     Private Sub btnInventory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInventory.Click
-        Populate()
+        btnFilterAll.PerformClick()
     End Sub
 
     Private Sub cmbCategory_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCategory.SelectedIndexChanged

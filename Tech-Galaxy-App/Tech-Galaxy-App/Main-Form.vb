@@ -23,16 +23,53 @@ Public Class frmMain
         Dim result = dlgQuantity.ShowDialog()
         If result = Windows.Forms.DialogResult.Yes Then
             Dim quantity As Integer = dlgQuantity.numQuantity.Value
-            Dim item As String = grdItems.SelectedCells(0).Value
-            Dim subtotal As Integer = grdItems.SelectedCells(2).Value * quantity
+            Dim item As String = grdItems.SelectedCells(1).Value
+            Dim subtotal As Integer = grdItems.SelectedCells(3).Value * quantity
             Dim total As Integer = subtotal + lblTotal.Text
             Dim vat As Integer = total * 0.02
             Dim Gtotal As Integer = vat + total
+            Dim id As String = grdItems.SelectedCells(0).Value
             If quantity <> 0 Then
-                grdOrders.Rows.Add(quantity, item, subtotal)
+                grdOrders.Rows.Add(quantity, id, item, subtotal)
                 lblTotal.Text = total
                 lblVAT.Text = vat
                 lblGtotal.Text = Gtotal
+                btnFilterAll.PerformClick()
+            End If
+        End If
+    End Sub
+
+    Private Sub btnRemoveOrderItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemoveOrderItem.Click
+        Dim currentstock As Integer
+        Dim result = dlgConfirmation.ShowDialog()
+        If result = DialogResult.Yes Then
+            If grdOrders.Rows.Count > 0 Then
+                lblTotal.Text = lblTotal.Text - grdOrders.SelectedCells(3).Value
+                Dim vat As Integer = lblTotal.Text * 0.02
+                Dim Gtotal As Integer = vat + lblTotal.Text
+                lblVAT.Text = vat
+                lblGtotal.Text = Gtotal
+                Using cmd As New OleDbCommand("SELECT stock FROM tbl_items WHERE ID=@ID", con)
+                    cmd.Parameters.AddWithValue("@ID", grdOrders.SelectedCells(1).Value)
+                    Dim result1 = cmd.ExecuteScalar()
+                    If result1 > 0 Then
+                        Dim reader As OleDbDataReader
+                        reader = cmd.ExecuteReader
+                        reader.Read()
+                        If reader.HasRows Then
+                            currentstock = reader.Item(0)
+                        End If
+                    End If
+                End Using
+                Using cmd As New OleDb.OleDbCommand("UPDATE tbl_items SET [stock] = @stock WHERE ID = @id", con)
+                    With cmd.Parameters
+                        .AddWithValue("@stock", currentstock + grdOrders.SelectedCells(0).Value)
+                        .AddWithValue("@id", grdOrders.SelectedCells(1).Value)
+                    End With
+                    cmd.ExecuteNonQuery()
+                End Using
+                grdOrders.Rows.Remove(grdOrders.SelectedRows(0))
+                btnFilterAll.PerformClick()
             End If
         End If
     End Sub
@@ -60,22 +97,15 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub btnRemoveOrderItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemoveOrderItem.Click
-        Dim result = dlgConfirmation.ShowDialog()
-        If result = DialogResult.Yes Then
-            If grdOrders.Rows.Count > 0 Then
-                lblTotal.Text = lblTotal.Text - grdOrders.SelectedCells(2).Value
-                grdOrders.Rows.Remove(grdOrders.SelectedRows(0))
-            End If
-        End If
-    End Sub
+    
     'method for table item to data grid view
     Public Sub populate()
-        Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items", con)
+        Using da As New OleDbDataAdapter("SELECT ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items", con)
             Dim dt As New DataTable
             da.Fill(dt)
             grdItems.DataSource = dt.DefaultView
             grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            grdItems.Sort(grdItems.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
         End Using
     End Sub
     'side panel
@@ -158,5 +188,4 @@ Public Class frmMain
             End If
         End If
     End Sub
-
 End Class
