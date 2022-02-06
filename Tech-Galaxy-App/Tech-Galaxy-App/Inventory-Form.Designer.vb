@@ -49,7 +49,7 @@ Partial Class frmInventory
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblHeader = New System.Windows.Forms.Label()
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.btnFilterChassis = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnFilterOthers = New Guna.UI2.WinForms.Guna2Button()
         Me.btnFilterPowerSupply = New Guna.UI2.WinForms.Guna2Button()
         Me.btnFilterMemory = New Guna.UI2.WinForms.Guna2Button()
         Me.btnFilterVideoCard = New Guna.UI2.WinForms.Guna2Button()
@@ -528,26 +528,26 @@ Partial Class frmInventory
         Me.txtSearch.Size = New System.Drawing.Size(653, 36)
         Me.txtSearch.TabIndex = 5
         '
-        'btnFilterChassis
+        'btnFilterOthers
         '
-        Me.btnFilterChassis.Animated = True
-        Me.btnFilterChassis.BorderRadius = 3
-        Me.btnFilterChassis.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
-        Me.btnFilterChassis.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.btnFilterChassis.CheckedState.ForeColor = System.Drawing.Color.White
-        Me.btnFilterChassis.CheckedState.Parent = Me.btnFilterChassis
-        Me.btnFilterChassis.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnFilterChassis.CustomImages.Parent = Me.btnFilterChassis
-        Me.btnFilterChassis.FillColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.btnFilterChassis.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.btnFilterChassis.ForeColor = System.Drawing.Color.Black
-        Me.btnFilterChassis.HoverState.Parent = Me.btnFilterChassis
-        Me.btnFilterChassis.Location = New System.Drawing.Point(637, 92)
-        Me.btnFilterChassis.Name = "btnFilterChassis"
-        Me.btnFilterChassis.ShadowDecoration.Parent = Me.btnFilterChassis
-        Me.btnFilterChassis.Size = New System.Drawing.Size(77, 28)
-        Me.btnFilterChassis.TabIndex = 18
-        Me.btnFilterChassis.Text = "Chassis"
+        Me.btnFilterOthers.Animated = True
+        Me.btnFilterOthers.BorderRadius = 3
+        Me.btnFilterOthers.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        Me.btnFilterOthers.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnFilterOthers.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnFilterOthers.CheckedState.Parent = Me.btnFilterOthers
+        Me.btnFilterOthers.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnFilterOthers.CustomImages.Parent = Me.btnFilterOthers
+        Me.btnFilterOthers.FillColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.btnFilterOthers.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnFilterOthers.ForeColor = System.Drawing.Color.Black
+        Me.btnFilterOthers.HoverState.Parent = Me.btnFilterOthers
+        Me.btnFilterOthers.Location = New System.Drawing.Point(637, 92)
+        Me.btnFilterOthers.Name = "btnFilterOthers"
+        Me.btnFilterOthers.ShadowDecoration.Parent = Me.btnFilterOthers
+        Me.btnFilterOthers.Size = New System.Drawing.Size(77, 28)
+        Me.btnFilterOthers.TabIndex = 18
+        Me.btnFilterOthers.Text = "Others"
         '
         'btnFilterPowerSupply
         '
@@ -796,7 +796,7 @@ Partial Class frmInventory
         Me.Controls.Add(Me.btnAddStock)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.grdItems)
-        Me.Controls.Add(Me.btnFilterChassis)
+        Me.Controls.Add(Me.btnFilterOthers)
         Me.Controls.Add(Me.btnFilterPowerSupply)
         Me.Controls.Add(Me.btnFilterMemory)
         Me.Controls.Add(Me.btnFilterVideoCard)
@@ -830,7 +830,7 @@ Partial Class frmInventory
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents lblHeader As System.Windows.Forms.Label
     Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents btnFilterChassis As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnFilterOthers As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFilterPowerSupply As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFilterMemory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFilterVideoCard As Guna.UI2.WinForms.Guna2Button
