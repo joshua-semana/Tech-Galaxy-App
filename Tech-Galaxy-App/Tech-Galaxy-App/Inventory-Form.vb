@@ -5,6 +5,7 @@ Public Class frmInventory
         Populate()
     End Sub
     Public Sub EnableEdit()
+        txtID.Enabled = True
         txtItemName.Enabled = True
         cmbCategory.Enabled = True
         txtPrice.Enabled = True
@@ -18,7 +19,7 @@ Public Class frmInventory
 
         txtSearch.Enabled = False
         btnFilterAll.Enabled = False
-        btnFilterChassis.Enabled = False
+        btnFilterOthers.Enabled = False
         btnFilterMemory.Enabled = False
         btnFilterMotherboard.Enabled = False
         btnFilterPowerSupply.Enabled = False
@@ -32,6 +33,7 @@ Public Class frmInventory
         btnSetting.Enabled = False
     End Sub
     Public Sub DisableEdit()
+        txtID.Enabled = False
         txtItemName.Enabled = False
         cmbCategory.Enabled = False
         txtPrice.Enabled = False
@@ -45,7 +47,7 @@ Public Class frmInventory
 
         txtSearch.Enabled = True
         btnFilterAll.Enabled = True
-        btnFilterChassis.Enabled = True
+        btnFilterOthers.Enabled = True
         btnFilterMemory.Enabled = True
         btnFilterMotherboard.Enabled = True
         btnFilterPowerSupply.Enabled = True
@@ -151,76 +153,40 @@ Public Class frmInventory
             End Using
         End If
     End Sub
+
+    Public Sub Filter(ByVal name As String)
+        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + name + "%'", con)
+            Dim dt As New DataTable
+            dt.Clear()
+            da.Fill(dt)
+            grdItems.DataSource = dt.DefaultView
+            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        End Using
+        txtSearch.Text = ""
+    End Sub
+
     Private Sub btnFilterAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterAll.Click
-        populate()
+        Populate()
         txtSearch.Text = ""
     End Sub
     Private Sub btnFilterProcessor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterProcessor.Click
-        Dim r As String = "Processor"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
-            Dim dt As New DataTable
-            dt.Clear()
-            da.Fill(dt)
-            grdItems.DataSource = dt.DefaultView
-            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        End Using
-        txtSearch.Text = ""
+        Filter("Processor")
     End Sub
     Private Sub btnFilterMotherboard_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterMotherboard.Click
-        Dim r As String = "Motherboard"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
-            Dim dt As New DataTable
-            dt.Clear()
-            da.Fill(dt)
-            grdItems.DataSource = dt.DefaultView
-            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        End Using
-        txtSearch.Text = ""
+        Filter("Motherboard")
     End Sub
     Private Sub btnFilterVideoCard_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterVideoCard.Click
-        Dim r As String = "Video Card"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
-            Dim dt As New DataTable
-            dt.Clear()
-            da.Fill(dt)
-            grdItems.DataSource = dt.DefaultView
-            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        End Using
-        txtSearch.Text = ""
+        Filter("Video Card")
     End Sub
     Private Sub btnFilterMemory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterMemory.Click
-        Dim r As String = "Memory"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
-            Dim dt As New DataTable
-            dt.Clear()
-            da.Fill(dt)
-            grdItems.DataSource = dt.DefaultView
-            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        End Using
-        txtSearch.Text = ""
+        Filter("Memory")
     End Sub
     Private Sub btnFilterPowerSupply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterPowerSupply.Click
-        Dim r As String = "Power Supply"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
-            Dim dt As New DataTable
-            dt.Clear()
-            da.Fill(dt)
-            grdItems.DataSource = dt.DefaultView
-            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        End Using
-        txtSearch.Text = ""
+        Filter("Power Supply")
     End Sub
-    Private Sub btnFilterChassis_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterChassis.Click
-        Dim r As String = "Chassis"
-        Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + r + "%'", con)
-            Dim dt As New DataTable
-            dt.Clear()
-            da.Fill(dt)
-            grdItems.DataSource = dt.DefaultView
-            grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        End Using
-        txtSearch.Text = ""
-    End Sub 'end filters
+    Private Sub btnFilterOthers_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterOthers.Click
+        Filter("Processor")
+    End Sub
 
     Private Sub grdItems_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdItems.CellClick
         Try
@@ -228,7 +194,7 @@ Public Class frmInventory
             index = e.RowIndex
             Dim row As DataGridViewRow
             row = grdItems.Rows(index)
-            txtID.Text = row.Cells(0).Value.ToString
+            txtID.Text = row.Cells(0).Value.ToString.Substring(3)
             txtItemName.Text = row.Cells(1).Value.ToString
             cmbCategory.Text = row.Cells(2).Value.ToString
             txtPrice.Text = row.Cells(3).Value.ToString
@@ -253,4 +219,20 @@ Public Class frmInventory
         Populate()
     End Sub
 
+    Private Sub cmbCategory_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCategory.SelectedIndexChanged
+        Select Case cmbCategory.SelectedItem.ToString
+            Case "Processor"
+                lblPrefix.Text = "Prc -"
+            Case "Motherboard"
+                lblPrefix.Text = "Mob - "
+            Case "Video Card"
+                lblPrefix.Text = "Vid -"
+            Case "Memory"
+                lblPrefix.Text = "Mem - "
+            Case "Power Supply"
+                lblPrefix.Text = "Pow -"
+            Case "Others"
+                lblPrefix.Text = "Oth - "
+        End Select
+    End Sub
 End Class

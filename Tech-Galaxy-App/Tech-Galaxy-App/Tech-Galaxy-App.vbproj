@@ -17,7 +17,7 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -160,6 +160,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Order-Complete-Dialog.Designer.vb">
+      <DependentUpon>Order-Complete-Dialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order-Complete-Dialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order-Name-Dialog.Designer.vb">
+      <DependentUpon>Order-Name-Dialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order-Name-Dialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Quantity-Dialog.Designer.vb">
       <DependentUpon>Quantity-Dialog.vb</DependentUpon>
     </Compile>
@@ -170,6 +182,12 @@
       <DependentUpon>User-Main-Form.vb</DependentUpon>
     </Compile>
     <Compile Include="User-Main-Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View-History-Dialog.Designer.vb">
+      <DependentUpon>View-History-Dialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View-History-Dialog.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -213,11 +231,20 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Order-Complete-Dialog.resx">
+      <DependentUpon>Order-Complete-Dialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order-Name-Dialog.resx">
+      <DependentUpon>Order-Name-Dialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Quantity-Dialog.resx">
       <DependentUpon>Quantity-Dialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User-Main-Form.resx">
       <DependentUpon>User-Main-Form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View-History-Dialog.resx">
+      <DependentUpon>View-History-Dialog.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

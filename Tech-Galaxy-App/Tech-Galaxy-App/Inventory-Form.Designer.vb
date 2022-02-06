@@ -33,7 +33,9 @@ Partial Class frmInventory
         Me.btnMain = New Guna.UI2.WinForms.Guna2Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.txtID = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblPrefix = New System.Windows.Forms.Label()
         Me.cmbCategory = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnRemoveItem = New Guna.UI2.WinForms.Guna2Button()
@@ -49,7 +51,7 @@ Partial Class frmInventory
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblHeader = New System.Windows.Forms.Label()
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.btnFilterChassis = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnFilterOthers = New Guna.UI2.WinForms.Guna2Button()
         Me.btnFilterPowerSupply = New Guna.UI2.WinForms.Guna2Button()
         Me.btnFilterMemory = New Guna.UI2.WinForms.Guna2Button()
         Me.btnFilterVideoCard = New Guna.UI2.WinForms.Guna2Button()
@@ -190,7 +192,9 @@ Partial Class frmInventory
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Controls.Add(Me.txtID)
+        Me.Panel2.Controls.Add(Me.lblPrefix)
         Me.Panel2.Controls.Add(Me.cmbCategory)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.btnRemoveItem)
@@ -210,6 +214,19 @@ Partial Class frmInventory
         Me.Panel2.Size = New System.Drawing.Size(300, 640)
         Me.Panel2.TabIndex = 2
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.Label6.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(8, 52)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(93, 21)
+        Me.Label6.TabIndex = 43
+        Me.Label6.Text = "Product ID"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'txtID
         '
         Me.txtID.Animated = True
@@ -228,21 +245,34 @@ Partial Class frmInventory
         Me.txtID.ForeColor = System.Drawing.Color.Black
         Me.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtID.HoverState.Parent = Me.txtID
-        Me.txtID.Location = New System.Drawing.Point(12, 570)
+        Me.txtID.Location = New System.Drawing.Point(71, 78)
         Me.txtID.Margin = New System.Windows.Forms.Padding(5)
         Me.txtID.Name = "txtID"
         Me.txtID.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtID.PlaceholderText = ""
+        Me.txtID.ReadOnly = True
         Me.txtID.SelectedText = ""
         Me.txtID.ShadowDecoration.Parent = Me.txtID
-        Me.txtID.Size = New System.Drawing.Size(10, 10)
-        Me.txtID.TabIndex = 30
-        Me.txtID.Visible = False
+        Me.txtID.Size = New System.Drawing.Size(219, 36)
+        Me.txtID.TabIndex = 42
+        '
+        'lblPrefix
+        '
+        Me.lblPrefix.AutoSize = True
+        Me.lblPrefix.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.lblPrefix.Font = New System.Drawing.Font("Consolas", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.lblPrefix.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.lblPrefix.Location = New System.Drawing.Point(8, 87)
+        Me.lblPrefix.Name = "lblPrefix"
+        Me.lblPrefix.Size = New System.Drawing.Size(63, 19)
+        Me.lblPrefix.TabIndex = 41
+        Me.lblPrefix.Text = "Prc - "
+        Me.lblPrefix.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cmbCategory
         '
         Me.cmbCategory.Animated = True
-        Me.cmbCategory.BackColor = System.Drawing.Color.Transparent
+        Me.cmbCategory.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
         Me.cmbCategory.BorderRadius = 3
         Me.cmbCategory.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
@@ -252,12 +282,11 @@ Partial Class frmInventory
         Me.cmbCategory.FocusedState.Parent = Me.cmbCategory
         Me.cmbCategory.Font = New System.Drawing.Font("Varela Round", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbCategory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.cmbCategory.FormattingEnabled = True
         Me.cmbCategory.HoverState.Parent = Me.cmbCategory
         Me.cmbCategory.ItemHeight = 30
-        Me.cmbCategory.Items.AddRange(New Object() {"Processor", "Motherboard", "Video Card", "Memory", "Power Supply", "Chassis"})
+        Me.cmbCategory.Items.AddRange(New Object() {"Processor", "Motherboard", "Video Card", "Memory", "Power Supply", "Others"})
         Me.cmbCategory.ItemsAppearance.Parent = Me.cmbCategory
-        Me.cmbCategory.Location = New System.Drawing.Point(11, 139)
+        Me.cmbCategory.Location = New System.Drawing.Point(11, 211)
         Me.cmbCategory.Name = "cmbCategory"
         Me.cmbCategory.ShadowDecoration.Parent = Me.cmbCategory
         Me.cmbCategory.Size = New System.Drawing.Size(279, 36)
@@ -268,7 +297,7 @@ Partial Class frmInventory
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(7, 115)
+        Me.Label4.Location = New System.Drawing.Point(7, 187)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 21)
         Me.Label4.TabIndex = 28
@@ -301,7 +330,7 @@ Partial Class frmInventory
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(8, 249)
+        Me.Label5.Location = New System.Drawing.Point(8, 321)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(54, 21)
         Me.Label5.TabIndex = 20
@@ -324,7 +353,7 @@ Partial Class frmInventory
         Me.numStock.FocusedState.Parent = Me.numStock
         Me.numStock.Font = New System.Drawing.Font("Varela Round", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.numStock.ForeColor = System.Drawing.Color.Black
-        Me.numStock.Location = New System.Drawing.Point(12, 274)
+        Me.numStock.Location = New System.Drawing.Point(12, 346)
         Me.numStock.Margin = New System.Windows.Forms.Padding(4, 4, 4, 10)
         Me.numStock.Name = "numStock"
         Me.numStock.ShadowDecoration.Parent = Me.numStock
@@ -338,7 +367,7 @@ Partial Class frmInventory
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(8, 182)
+        Me.Label2.Location = New System.Drawing.Point(8, 254)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(49, 21)
         Me.Label2.TabIndex = 18
@@ -363,7 +392,7 @@ Partial Class frmInventory
         Me.txtPrice.ForeColor = System.Drawing.Color.Black
         Me.txtPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPrice.HoverState.Parent = Me.txtPrice
-        Me.txtPrice.Location = New System.Drawing.Point(11, 208)
+        Me.txtPrice.Location = New System.Drawing.Point(11, 280)
         Me.txtPrice.Margin = New System.Windows.Forms.Padding(5)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -378,7 +407,7 @@ Partial Class frmInventory
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(8, 48)
+        Me.Label1.Location = New System.Drawing.Point(8, 120)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(95, 21)
         Me.Label1.TabIndex = 16
@@ -403,7 +432,7 @@ Partial Class frmInventory
         Me.txtItemName.ForeColor = System.Drawing.Color.Black
         Me.txtItemName.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtItemName.HoverState.Parent = Me.txtItemName
-        Me.txtItemName.Location = New System.Drawing.Point(11, 74)
+        Me.txtItemName.Location = New System.Drawing.Point(11, 146)
         Me.txtItemName.Margin = New System.Windows.Forms.Padding(5)
         Me.txtItemName.Name = "txtItemName"
         Me.txtItemName.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -528,26 +557,26 @@ Partial Class frmInventory
         Me.txtSearch.Size = New System.Drawing.Size(653, 36)
         Me.txtSearch.TabIndex = 5
         '
-        'btnFilterChassis
+        'btnFilterOthers
         '
-        Me.btnFilterChassis.Animated = True
-        Me.btnFilterChassis.BorderRadius = 3
-        Me.btnFilterChassis.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
-        Me.btnFilterChassis.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.btnFilterChassis.CheckedState.ForeColor = System.Drawing.Color.White
-        Me.btnFilterChassis.CheckedState.Parent = Me.btnFilterChassis
-        Me.btnFilterChassis.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnFilterChassis.CustomImages.Parent = Me.btnFilterChassis
-        Me.btnFilterChassis.FillColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.btnFilterChassis.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.btnFilterChassis.ForeColor = System.Drawing.Color.Black
-        Me.btnFilterChassis.HoverState.Parent = Me.btnFilterChassis
-        Me.btnFilterChassis.Location = New System.Drawing.Point(637, 92)
-        Me.btnFilterChassis.Name = "btnFilterChassis"
-        Me.btnFilterChassis.ShadowDecoration.Parent = Me.btnFilterChassis
-        Me.btnFilterChassis.Size = New System.Drawing.Size(77, 28)
-        Me.btnFilterChassis.TabIndex = 18
-        Me.btnFilterChassis.Text = "Chassis"
+        Me.btnFilterOthers.Animated = True
+        Me.btnFilterOthers.BorderRadius = 3
+        Me.btnFilterOthers.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        Me.btnFilterOthers.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnFilterOthers.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnFilterOthers.CheckedState.Parent = Me.btnFilterOthers
+        Me.btnFilterOthers.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnFilterOthers.CustomImages.Parent = Me.btnFilterOthers
+        Me.btnFilterOthers.FillColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.btnFilterOthers.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnFilterOthers.ForeColor = System.Drawing.Color.Black
+        Me.btnFilterOthers.HoverState.Parent = Me.btnFilterOthers
+        Me.btnFilterOthers.Location = New System.Drawing.Point(637, 92)
+        Me.btnFilterOthers.Name = "btnFilterOthers"
+        Me.btnFilterOthers.ShadowDecoration.Parent = Me.btnFilterOthers
+        Me.btnFilterOthers.Size = New System.Drawing.Size(77, 28)
+        Me.btnFilterOthers.TabIndex = 18
+        Me.btnFilterOthers.Text = "Others"
         '
         'btnFilterPowerSupply
         '
@@ -796,7 +825,7 @@ Partial Class frmInventory
         Me.Controls.Add(Me.btnAddStock)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.grdItems)
-        Me.Controls.Add(Me.btnFilterChassis)
+        Me.Controls.Add(Me.btnFilterOthers)
         Me.Controls.Add(Me.btnFilterPowerSupply)
         Me.Controls.Add(Me.btnFilterMemory)
         Me.Controls.Add(Me.btnFilterVideoCard)
@@ -830,7 +859,7 @@ Partial Class frmInventory
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents lblHeader As System.Windows.Forms.Label
     Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents btnFilterChassis As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnFilterOthers As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFilterPowerSupply As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFilterMemory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFilterVideoCard As Guna.UI2.WinForms.Guna2Button
@@ -854,5 +883,7 @@ Partial Class frmInventory
     Friend WithEvents btnAddStock As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents cmbCategory As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtID As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents lblPrefix As System.Windows.Forms.Label
 End Class
