@@ -154,7 +154,7 @@ Public Class frmUserMain
         Filter("Others")
     End Sub
     'btn Sign out
-    Private Sub btnSignOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btnSignOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSignOut.Click
         Dim result = dlgConfirmation3.ShowDialog()
         If result = DialogResult.Yes Then
             frmLogin.Show()
