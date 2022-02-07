@@ -250,6 +250,7 @@ Partial Class frmInventory
         Me.txtID.Name = "txtID"
         Me.txtID.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtID.PlaceholderText = ""
+        Me.txtID.ReadOnly = True
         Me.txtID.SelectedText = ""
         Me.txtID.ShadowDecoration.Parent = Me.txtID
         Me.txtID.Size = New System.Drawing.Size(219, 36)
