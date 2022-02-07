@@ -9,6 +9,7 @@ Public Class frmLogin
     Private Sub brnSignIn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSignIn.Click
         If txtUsername.Text = "" Or txtPassword.Text = "" Then
             MessageBox.Show("Please enter the necessary information to continue.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtUsername.Select()
         Else
             DoSignIn()
         End If
@@ -42,9 +43,12 @@ Public Class frmLogin
                 End If
             Else
                 MsgBox("Username or Password is incorrect, please try again.", MsgBoxStyle.OkOnly Or MsgBoxStyle.Critical, "Login Error")
+                txtUsername.Select()
             End If
         End Using
     End Sub
 
-
+    Private Sub frmLogin_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        txtUsername.Select()
+    End Sub
 End Class

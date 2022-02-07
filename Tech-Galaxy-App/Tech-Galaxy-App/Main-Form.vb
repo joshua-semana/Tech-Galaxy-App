@@ -49,11 +49,13 @@ Public Class frmMain
 
     Private Sub grdOrders_RowsAdded(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowsAddedEventArgs) Handles grdOrders.RowsAdded
         DisableNavigation()
+        btnCheckOut.Enabled = True
     End Sub
 
     Private Sub grdOrders_RowsRemoved(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowsRemovedEventArgs) Handles grdOrders.RowsRemoved
         If grdOrders.Rows.Count < 1 Then
             EnableNavigation()
+            btnCheckOut.Enabled = False
         End If
     End Sub
 
@@ -145,4 +147,15 @@ Public Class frmMain
     Private Sub btnFilterOthers_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterOthers.Click
         Filter("Others")
     End Sub
+
+    Private Sub btnCheckOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCheckOut.Click
+        Dim result = dlgOrderName.ShowDialog()
+        If result = DialogResult.Yes Then
+            Dim result1 = dlgOrderComplete.ShowDialog()
+            If result1 = DialogResult.Yes Then
+                btnFilterAll.PerformClick()
+            End If
+        End If
+    End Sub
+
 End Class

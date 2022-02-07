@@ -36,6 +36,8 @@ Partial Class frmMain
         Me.btnMain = New Guna.UI2.WinForms.Guna2Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnCheckOut = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnRemoveOrderItem = New Guna.UI2.WinForms.Guna2Button()
         Me.btnClearOrder = New Guna.UI2.WinForms.Guna2Button()
@@ -45,7 +47,6 @@ Partial Class frmMain
         Me.lblTotal = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnAddToOrder = New Guna.UI2.WinForms.Guna2Button()
-        Me.btnCheckOut = New Guna.UI2.WinForms.Guna2Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblOrderNumber = New System.Windows.Forms.Label()
         Me.lblDate = New System.Windows.Forms.Label()
@@ -62,7 +63,6 @@ Partial Class frmMain
         Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colOrderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colSubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -212,6 +212,35 @@ Partial Class frmMain
         Me.Panel2.Size = New System.Drawing.Size(300, 640)
         Me.Panel2.TabIndex = 1
         '
+        'btnCheckOut
+        '
+        Me.btnCheckOut.Animated = True
+        Me.btnCheckOut.BorderRadius = 3
+        Me.btnCheckOut.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnCheckOut.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnCheckOut.CheckedState.Parent = Me.btnCheckOut
+        Me.btnCheckOut.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCheckOut.CustomImages.Parent = Me.btnCheckOut
+        Me.btnCheckOut.Enabled = False
+        Me.btnCheckOut.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnCheckOut.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnCheckOut.ForeColor = System.Drawing.Color.White
+        Me.btnCheckOut.HoverState.Parent = Me.btnCheckOut
+        Me.btnCheckOut.Location = New System.Drawing.Point(11, 542)
+        Me.btnCheckOut.Name = "btnCheckOut"
+        Me.btnCheckOut.ShadowDecoration.Parent = Me.btnCheckOut
+        Me.btnCheckOut.Size = New System.Drawing.Size(279, 40)
+        Me.btnCheckOut.TabIndex = 12
+        Me.btnCheckOut.Text = "CHECK OUT"
+        '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.FillColor = System.Drawing.Color.LightGray
+        Me.Guna2Separator1.Location = New System.Drawing.Point(12, 501)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(277, 10)
+        Me.Guna2Separator1.TabIndex = 15
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -342,26 +371,6 @@ Partial Class frmMain
         Me.btnAddToOrder.Size = New System.Drawing.Size(279, 40)
         Me.btnAddToOrder.TabIndex = 13
         Me.btnAddToOrder.Text = "ADD TO ORDER"
-        '
-        'btnCheckOut
-        '
-        Me.btnCheckOut.Animated = True
-        Me.btnCheckOut.BorderRadius = 3
-        Me.btnCheckOut.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.btnCheckOut.CheckedState.ForeColor = System.Drawing.Color.White
-        Me.btnCheckOut.CheckedState.Parent = Me.btnCheckOut
-        Me.btnCheckOut.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCheckOut.CustomImages.Parent = Me.btnCheckOut
-        Me.btnCheckOut.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.btnCheckOut.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.btnCheckOut.ForeColor = System.Drawing.Color.White
-        Me.btnCheckOut.HoverState.Parent = Me.btnCheckOut
-        Me.btnCheckOut.Location = New System.Drawing.Point(11, 542)
-        Me.btnCheckOut.Name = "btnCheckOut"
-        Me.btnCheckOut.ShadowDecoration.Parent = Me.btnCheckOut
-        Me.btnCheckOut.Size = New System.Drawing.Size(279, 40)
-        Me.btnCheckOut.TabIndex = 12
-        Me.btnCheckOut.Text = "CHECK OUT"
         '
         'Label3
         '
@@ -735,14 +744,6 @@ Partial Class frmMain
         Me.colSubTotal.HeaderText = "Sub-Total"
         Me.colSubTotal.Name = "colSubTotal"
         Me.colSubTotal.ReadOnly = True
-        '
-        'Guna2Separator1
-        '
-        Me.Guna2Separator1.FillColor = System.Drawing.Color.LightGray
-        Me.Guna2Separator1.Location = New System.Drawing.Point(12, 501)
-        Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(277, 10)
-        Me.Guna2Separator1.TabIndex = 15
         '
         'frmMain
         '

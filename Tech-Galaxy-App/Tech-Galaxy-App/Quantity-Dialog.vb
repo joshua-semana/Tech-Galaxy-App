@@ -19,5 +19,6 @@ Public Class dlgQuantity
 
     Private Sub dlgQuantity_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         numQuantity.Maximum = frmMain.grdItems.SelectedCells(3).Value
+        numQuantity.Value = 1
     End Sub
 End Class

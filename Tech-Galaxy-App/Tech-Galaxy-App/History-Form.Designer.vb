@@ -33,13 +33,28 @@ Partial Class frmHistory
         Me.btnMain = New Guna.UI2.WinForms.Guna2Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lblDate = New System.Windows.Forms.Label()
+        Me.btnCustom = New Guna.UI2.WinForms.Guna2Button()
+        Me.lblSales = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Guna2Separator2 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.lblVAT = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnYearly = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnMonthly = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnWeekly = New Guna.UI2.WinForms.Guna2Button()
+        Me.btnDaily = New Guna.UI2.WinForms.Guna2Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dtpTo = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.dtpFrom = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtPreview = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.btnView = New Guna.UI2.WinForms.Guna2Button()
         Me.lblHeader = New System.Windows.Forms.Label()
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         Me.grdTransactions = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.colOrderNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colItems = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,25 +186,263 @@ Partial Class frmHistory
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.lblDate)
+        Me.Panel2.Controls.Add(Me.btnCustom)
+        Me.Panel2.Controls.Add(Me.lblSales)
+        Me.Panel2.Controls.Add(Me.Label4)
+        Me.Panel2.Controls.Add(Me.Guna2Separator2)
+        Me.Panel2.Controls.Add(Me.Guna2Separator1)
+        Me.Panel2.Controls.Add(Me.lblVAT)
+        Me.Panel2.Controls.Add(Me.Label2)
+        Me.Panel2.Controls.Add(Me.btnYearly)
+        Me.Panel2.Controls.Add(Me.btnMonthly)
+        Me.Panel2.Controls.Add(Me.btnWeekly)
+        Me.Panel2.Controls.Add(Me.btnDaily)
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.dtpTo)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.dtpFrom)
         Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.txtPreview)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel2.Location = New System.Drawing.Point(724, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(300, 640)
         Me.Panel2.TabIndex = 2
         '
-        'lblDate
+        'btnCustom
         '
-        Me.lblDate.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.lblDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.lblDate.Location = New System.Drawing.Point(8, 48)
-        Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(167, 21)
-        Me.lblDate.TabIndex = 6
-        Me.lblDate.Text = "Date"
-        Me.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCustom.Animated = True
+        Me.btnCustom.BorderRadius = 3
+        Me.btnCustom.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        Me.btnCustom.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnCustom.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnCustom.CheckedState.Parent = Me.btnCustom
+        Me.btnCustom.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCustom.CustomImages.Parent = Me.btnCustom
+        Me.btnCustom.FillColor = System.Drawing.Color.White
+        Me.btnCustom.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnCustom.ForeColor = System.Drawing.Color.Black
+        Me.btnCustom.HoverState.Parent = Me.btnCustom
+        Me.btnCustom.Location = New System.Drawing.Point(11, 82)
+        Me.btnCustom.Name = "btnCustom"
+        Me.btnCustom.ShadowDecoration.Parent = Me.btnCustom
+        Me.btnCustom.Size = New System.Drawing.Size(119, 28)
+        Me.btnCustom.TabIndex = 57
+        Me.btnCustom.Text = "Custom Date"
+        '
+        'lblSales
+        '
+        Me.lblSales.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel)
+        Me.lblSales.ForeColor = System.Drawing.Color.Black
+        Me.lblSales.Location = New System.Drawing.Point(68, 260)
+        Me.lblSales.Name = "lblSales"
+        Me.lblSales.Size = New System.Drawing.Size(220, 29)
+        Me.lblSales.TabIndex = 56
+        Me.lblSales.Text = "0"
+        Me.lblSales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.Label4.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(7, 264)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(50, 21)
+        Me.Label4.TabIndex = 55
+        Me.Label4.Text = "Sales"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Guna2Separator2
+        '
+        Me.Guna2Separator2.FillColor = System.Drawing.Color.LightGray
+        Me.Guna2Separator2.Location = New System.Drawing.Point(11, 216)
+        Me.Guna2Separator2.Name = "Guna2Separator2"
+        Me.Guna2Separator2.Size = New System.Drawing.Size(277, 10)
+        Me.Guna2Separator2.TabIndex = 54
+        '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.FillColor = System.Drawing.Color.LightGray
+        Me.Guna2Separator1.Location = New System.Drawing.Point(11, 116)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(277, 10)
+        Me.Guna2Separator1.TabIndex = 53
+        '
+        'lblVAT
+        '
+        Me.lblVAT.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel)
+        Me.lblVAT.ForeColor = System.Drawing.Color.Black
+        Me.lblVAT.Location = New System.Drawing.Point(68, 229)
+        Me.lblVAT.Name = "lblVAT"
+        Me.lblVAT.Size = New System.Drawing.Size(220, 29)
+        Me.lblVAT.TabIndex = 52
+        Me.lblVAT.Text = "0"
+        Me.lblVAT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.Label2.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(7, 233)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(41, 21)
+        Me.Label2.TabIndex = 51
+        Me.Label2.Text = "VAT"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'btnYearly
+        '
+        Me.btnYearly.Animated = True
+        Me.btnYearly.BorderRadius = 3
+        Me.btnYearly.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        Me.btnYearly.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnYearly.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnYearly.CheckedState.Parent = Me.btnYearly
+        Me.btnYearly.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnYearly.CustomImages.Parent = Me.btnYearly
+        Me.btnYearly.FillColor = System.Drawing.Color.White
+        Me.btnYearly.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnYearly.ForeColor = System.Drawing.Color.Black
+        Me.btnYearly.HoverState.Parent = Me.btnYearly
+        Me.btnYearly.Location = New System.Drawing.Point(227, 48)
+        Me.btnYearly.Name = "btnYearly"
+        Me.btnYearly.ShadowDecoration.Parent = Me.btnYearly
+        Me.btnYearly.Size = New System.Drawing.Size(61, 28)
+        Me.btnYearly.TabIndex = 50
+        Me.btnYearly.Text = "Yearly"
+        '
+        'btnMonthly
+        '
+        Me.btnMonthly.Animated = True
+        Me.btnMonthly.BorderRadius = 3
+        Me.btnMonthly.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        Me.btnMonthly.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnMonthly.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnMonthly.CheckedState.Parent = Me.btnMonthly
+        Me.btnMonthly.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMonthly.CustomImages.Parent = Me.btnMonthly
+        Me.btnMonthly.FillColor = System.Drawing.Color.White
+        Me.btnMonthly.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnMonthly.ForeColor = System.Drawing.Color.Black
+        Me.btnMonthly.HoverState.Parent = Me.btnMonthly
+        Me.btnMonthly.Location = New System.Drawing.Point(147, 48)
+        Me.btnMonthly.Name = "btnMonthly"
+        Me.btnMonthly.ShadowDecoration.Parent = Me.btnMonthly
+        Me.btnMonthly.Size = New System.Drawing.Size(74, 28)
+        Me.btnMonthly.TabIndex = 49
+        Me.btnMonthly.Text = "Monthly"
+        '
+        'btnWeekly
+        '
+        Me.btnWeekly.Animated = True
+        Me.btnWeekly.BorderRadius = 3
+        Me.btnWeekly.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        Me.btnWeekly.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnWeekly.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnWeekly.CheckedState.Parent = Me.btnWeekly
+        Me.btnWeekly.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnWeekly.CustomImages.Parent = Me.btnWeekly
+        Me.btnWeekly.FillColor = System.Drawing.Color.White
+        Me.btnWeekly.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnWeekly.ForeColor = System.Drawing.Color.Black
+        Me.btnWeekly.HoverState.Parent = Me.btnWeekly
+        Me.btnWeekly.Location = New System.Drawing.Point(68, 48)
+        Me.btnWeekly.Name = "btnWeekly"
+        Me.btnWeekly.ShadowDecoration.Parent = Me.btnWeekly
+        Me.btnWeekly.Size = New System.Drawing.Size(73, 28)
+        Me.btnWeekly.TabIndex = 48
+        Me.btnWeekly.Text = "Weekly"
+        '
+        'btnDaily
+        '
+        Me.btnDaily.Animated = True
+        Me.btnDaily.BorderRadius = 3
+        Me.btnDaily.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        Me.btnDaily.Checked = True
+        Me.btnDaily.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnDaily.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnDaily.CheckedState.Parent = Me.btnDaily
+        Me.btnDaily.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDaily.CustomImages.Parent = Me.btnDaily
+        Me.btnDaily.FillColor = System.Drawing.Color.White
+        Me.btnDaily.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnDaily.ForeColor = System.Drawing.Color.Black
+        Me.btnDaily.HoverState.Parent = Me.btnDaily
+        Me.btnDaily.Location = New System.Drawing.Point(11, 48)
+        Me.btnDaily.Name = "btnDaily"
+        Me.btnDaily.ShadowDecoration.Parent = Me.btnDaily
+        Me.btnDaily.Size = New System.Drawing.Size(51, 28)
+        Me.btnDaily.TabIndex = 47
+        Me.btnDaily.Text = "Daily"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(29, 182)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(33, 21)
+        Me.Label1.TabIndex = 46
+        Me.Label1.Text = "To:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'dtpTo
+        '
+        Me.dtpTo.Animated = True
+        Me.dtpTo.BorderRadius = 5
+        Me.dtpTo.CheckedState.Parent = Me.dtpTo
+        Me.dtpTo.CustomFormat = ""
+        Me.dtpTo.Enabled = False
+        Me.dtpTo.FillColor = System.Drawing.Color.White
+        Me.dtpTo.Font = New System.Drawing.Font("Varela Round", 11.0!)
+        Me.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpTo.HoverState.Parent = Me.dtpTo
+        Me.dtpTo.Location = New System.Drawing.Point(68, 174)
+        Me.dtpTo.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.dtpTo.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.dtpTo.Name = "dtpTo"
+        Me.dtpTo.ShadowDecoration.Parent = Me.dtpTo
+        Me.dtpTo.Size = New System.Drawing.Size(220, 36)
+        Me.dtpTo.TabIndex = 45
+        Me.dtpTo.Value = New Date(2022, 2, 6, 16, 56, 2, 709)
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
+        Me.Label6.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(7, 140)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(55, 21)
+        Me.Label6.TabIndex = 44
+        Me.Label6.Text = "From:"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'dtpFrom
+        '
+        Me.dtpFrom.Animated = True
+        Me.dtpFrom.BorderRadius = 5
+        Me.dtpFrom.CheckedState.Parent = Me.dtpFrom
+        Me.dtpFrom.CustomFormat = ""
+        Me.dtpFrom.Enabled = False
+        Me.dtpFrom.FillColor = System.Drawing.Color.White
+        Me.dtpFrom.Font = New System.Drawing.Font("Varela Round", 11.0!)
+        Me.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFrom.HoverState.Parent = Me.dtpFrom
+        Me.dtpFrom.Location = New System.Drawing.Point(68, 132)
+        Me.dtpFrom.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.dtpFrom.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.dtpFrom.Name = "dtpFrom"
+        Me.dtpFrom.ShadowDecoration.Parent = Me.dtpFrom
+        Me.dtpFrom.Size = New System.Drawing.Size(220, 36)
+        Me.dtpFrom.TabIndex = 7
+        Me.dtpFrom.Value = New Date(2022, 2, 6, 16, 56, 2, 709)
         '
         'Label3
         '
@@ -197,40 +450,29 @@ Partial Class frmHistory
         Me.Label3.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.Label3.Location = New System.Drawing.Point(6, 14)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(94, 29)
+        Me.Label3.Size = New System.Drawing.Size(67, 29)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Preview"
+        Me.Label3.Text = "Sales"
         '
-        'txtPreview
+        'btnView
         '
-        Me.txtPreview.BorderThickness = 0
-        Me.txtPreview.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPreview.DefaultText = "1x AMD Ryzen 5, 1x Asrock 320M, 1x MSI RX 570, 2x Kingston 4GB 2666 Mhz, 1x Coole" & _
-            "r Master 450w, 1x Fortress Armor D206"
-        Me.txtPreview.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtPreview.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtPreview.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPreview.DisabledState.Parent = Me.txtPreview
-        Me.txtPreview.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPreview.FillColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.txtPreview.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPreview.FocusedState.Parent = Me.txtPreview
-        Me.txtPreview.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.txtPreview.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtPreview.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPreview.HoverState.Parent = Me.txtPreview
-        Me.txtPreview.Location = New System.Drawing.Point(11, 73)
-        Me.txtPreview.Margin = New System.Windows.Forms.Padding(3, 4, 1, 4)
-        Me.txtPreview.Multiline = True
-        Me.txtPreview.Name = "txtPreview"
-        Me.txtPreview.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtPreview.PlaceholderText = ""
-        Me.txtPreview.ReadOnly = True
-        Me.txtPreview.SelectedText = ""
-        Me.txtPreview.SelectionStart = 118
-        Me.txtPreview.ShadowDecoration.Parent = Me.txtPreview
-        Me.txtPreview.Size = New System.Drawing.Size(279, 554)
-        Me.txtPreview.TabIndex = 5
+        Me.btnView.Animated = True
+        Me.btnView.BorderRadius = 3
+        Me.btnView.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnView.CheckedState.ForeColor = System.Drawing.Color.White
+        Me.btnView.CheckedState.Parent = Me.btnView
+        Me.btnView.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnView.CustomImages.Parent = Me.btnView
+        Me.btnView.FillColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.btnView.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.btnView.ForeColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
+        Me.btnView.HoverState.Parent = Me.btnView
+        Me.btnView.Location = New System.Drawing.Point(648, 15)
+        Me.btnView.Name = "btnView"
+        Me.btnView.ShadowDecoration.Parent = Me.btnView
+        Me.btnView.Size = New System.Drawing.Size(66, 28)
+        Me.btnView.TabIndex = 27
+        Me.btnView.Text = "View"
         '
         'lblHeader
         '
@@ -238,9 +480,9 @@ Partial Class frmHistory
         Me.lblHeader.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.lblHeader.Location = New System.Drawing.Point(56, 14)
         Me.lblHeader.Name = "lblHeader"
-        Me.lblHeader.Size = New System.Drawing.Size(212, 29)
+        Me.lblHeader.Size = New System.Drawing.Size(87, 29)
         Me.lblHeader.TabIndex = 3
-        Me.lblHeader.Text = "Transaction History"
+        Me.lblHeader.Text = "History"
         '
         'txtSearch
         '
@@ -295,7 +537,7 @@ Partial Class frmHistory
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdTransactions.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.grdTransactions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colOrderNumber, Me.colItems})
+        Me.grdTransactions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colNumber, Me.colName, Me.colItems})
         Me.grdTransactions.Cursor = System.Windows.Forms.Cursors.Arrow
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
@@ -307,7 +549,7 @@ Partial Class frmHistory
         Me.grdTransactions.DefaultCellStyle = DataGridViewCellStyle3
         Me.grdTransactions.EnableHeadersVisualStyles = False
         Me.grdTransactions.GridColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
-        Me.grdTransactions.Location = New System.Drawing.Point(61, 92)
+        Me.grdTransactions.Location = New System.Drawing.Point(61, 90)
         Me.grdTransactions.MultiSelect = False
         Me.grdTransactions.Name = "grdTransactions"
         Me.grdTransactions.ReadOnly = True
@@ -319,7 +561,7 @@ Partial Class frmHistory
         Me.grdTransactions.RowTemplate.Height = 30
         Me.grdTransactions.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.grdTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grdTransactions.Size = New System.Drawing.Size(653, 536)
+        Me.grdTransactions.Size = New System.Drawing.Size(653, 538)
         Me.grdTransactions.TabIndex = 13
         Me.grdTransactions.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.[Default]
         Me.grdTransactions.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(246, Byte), Integer))
@@ -344,16 +586,21 @@ Partial Class frmHistory
         Me.grdTransactions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.grdTransactions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White
         '
-        'colOrderNumber
+        'colNumber
         '
-        Me.colOrderNumber.FillWeight = 57.39649!
-        Me.colOrderNumber.HeaderText = "Order Number"
-        Me.colOrderNumber.Name = "colOrderNumber"
-        Me.colOrderNumber.ReadOnly = True
+        Me.colNumber.FillWeight = 57.39649!
+        Me.colNumber.HeaderText = "#"
+        Me.colNumber.Name = "colNumber"
+        Me.colNumber.ReadOnly = True
+        '
+        'colName
+        '
+        Me.colName.HeaderText = "Name"
+        Me.colName.Name = "colName"
+        Me.colName.ReadOnly = True
         '
         'colItems
         '
-        Me.colItems.FillWeight = 168.7457!
         Me.colItems.HeaderText = "Items"
         Me.colItems.Name = "colItems"
         Me.colItems.ReadOnly = True
@@ -364,6 +611,7 @@ Partial Class frmHistory
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1024, 640)
+        Me.Controls.Add(Me.btnView)
         Me.Controls.Add(Me.grdTransactions)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.lblHeader)
@@ -389,13 +637,28 @@ Partial Class frmHistory
     Friend WithEvents lblHeader As System.Windows.Forms.Label
     Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents grdTransactions As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents txtPreview As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents colOrderNumber As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colItems As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents lblDate As System.Windows.Forms.Label
     Friend WithEvents btnInventory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnHistory As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSetting As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnMain As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSignOut As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnView As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents dtpFrom As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents dtpTo As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents colNumber As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colName As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents colItems As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents btnYearly As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnMonthly As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnWeekly As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnDaily As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents lblVAT As System.Windows.Forms.Label
+    Friend WithEvents lblSales As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Guna2Separator2 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents btnCustom As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -5,6 +5,7 @@ Public Class frmInventory
         Populate()
     End Sub
     Public Sub EnableEdit()
+        txtID.Enabled = True
         txtItemName.Enabled = True
         cmbCategory.Enabled = True
         txtPrice.Enabled = True
@@ -32,6 +33,7 @@ Public Class frmInventory
         btnSetting.Enabled = False
     End Sub
     Public Sub DisableEdit()
+        txtID.Enabled = False
         txtItemName.Enabled = False
         cmbCategory.Enabled = False
         txtPrice.Enabled = False
@@ -192,7 +194,7 @@ Public Class frmInventory
             index = e.RowIndex
             Dim row As DataGridViewRow
             row = grdItems.Rows(index)
-            txtID.Text = row.Cells(0).Value.ToString
+            txtID.Text = row.Cells(0).Value.ToString.Substring(3)
             txtItemName.Text = row.Cells(1).Value.ToString
             cmbCategory.Text = row.Cells(2).Value.ToString
             txtPrice.Text = row.Cells(3).Value.ToString
@@ -217,4 +219,20 @@ Public Class frmInventory
         Populate()
     End Sub
 
+    Private Sub cmbCategory_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCategory.SelectedIndexChanged
+        Select Case cmbCategory.SelectedItem.ToString
+            Case "Processor"
+                lblPrefix.Text = "Prc -"
+            Case "Motherboard"
+                lblPrefix.Text = "Mob - "
+            Case "Video Card"
+                lblPrefix.Text = "Vid -"
+            Case "Memory"
+                lblPrefix.Text = "Mem - "
+            Case "Power Supply"
+                lblPrefix.Text = "Pow -"
+            Case "Others"
+                lblPrefix.Text = "Oth - "
+        End Select
+    End Sub
 End Class
