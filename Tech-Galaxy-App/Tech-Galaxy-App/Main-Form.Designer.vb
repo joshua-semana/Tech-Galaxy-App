@@ -59,11 +59,12 @@ Partial Class frmMain
         Me.btnFilterOthers = New Guna.UI2.WinForms.Guna2Button()
         Me.grdItems = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.grdOrders = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colOrderName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colSubTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -584,6 +585,7 @@ Partial Class frmMain
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.grdItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
         Me.grdItems.Cursor = System.Windows.Forms.Cursors.Arrow
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
@@ -704,17 +706,6 @@ Partial Class frmMain
         Me.grdOrders.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.grdOrders.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.Label5.Location = New System.Drawing.Point(60, 14)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(135, 29)
-        Me.Label5.TabIndex = 14
-        Me.Label5.Text = "Order No. #"
-        '
         'colQuantity
         '
         Me.colQuantity.FillWeight = 45.41947!
@@ -742,6 +733,23 @@ Partial Class frmMain
         Me.colSubTotal.HeaderText = "Sub-Total"
         Me.colSubTotal.Name = "colSubTotal"
         Me.colSubTotal.ReadOnly = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Varela Round", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.Label5.Location = New System.Drawing.Point(60, 14)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(135, 29)
+        Me.Label5.TabIndex = 14
+        Me.Label5.Text = "Order No. #"
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Column1"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
         '
         'frmMain
         '
@@ -814,4 +822,5 @@ Partial Class frmMain
     Friend WithEvents colID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colOrderName As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colSubTotal As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

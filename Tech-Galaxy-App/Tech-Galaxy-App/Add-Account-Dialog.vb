@@ -1,5 +1,5 @@
 ﻿Public Class dlgAddAccount
-
+    'method for clear data
     Public Sub ClearData()
         txtFirstname.Text = ""
         txtLastname.Text = ""
@@ -8,7 +8,7 @@
         txtConfirmPassword.Text = ""
         tglAsAnAdmin.Checked = False
     End Sub
-
+    'method for add new account
     Public Sub AddAccount()
         Using cmd As New OleDb.OleDbCommand("INSERT INTO tbl_login ([username], [password], [firstname], [lastname], [status]) VALUES (?, ?, ?, ?, ?)", con)
             With cmd.Parameters
@@ -29,7 +29,7 @@
         Me.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.Close()
     End Sub
-
+    'add btn
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         If txtFirstname.Text = "" Or txtLastname.Text = "" Or txtUsername.Text = "" Or txtPassword.Text = "" Then
             MessageBox.Show("Please enter the necessary information to continue.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -41,10 +41,9 @@
             End If
         End If
     End Sub
-
+    'cancel btn
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         ClearData()
         Me.Close()
     End Sub
-
 End Class

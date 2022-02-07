@@ -80,3 +80,6 @@ Public Class frmHistory
         dlgViewHistory.ShowDialog()
     End Sub
 End Class
+
+'SELECT * FROM TABLE_NAME WHERE DATE_TIME_COLUMN
+'BETWEEN 'STARTING_DATE_TIME' AND 'ENDING_DATE_TIME';
