@@ -53,9 +53,6 @@ Partial Class frmHistory
         Me.lblHeader = New System.Windows.Forms.Label()
         Me.txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         Me.grdTransactions = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.colNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colItems = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -537,7 +534,6 @@ Partial Class frmHistory
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdTransactions.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.grdTransactions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colNumber, Me.colName, Me.colItems})
         Me.grdTransactions.Cursor = System.Windows.Forms.Cursors.Arrow
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
@@ -586,25 +582,6 @@ Partial Class frmHistory
         Me.grdTransactions.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(77, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(233, Byte), Integer))
         Me.grdTransactions.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White
         '
-        'colNumber
-        '
-        Me.colNumber.FillWeight = 57.39649!
-        Me.colNumber.HeaderText = "#"
-        Me.colNumber.Name = "colNumber"
-        Me.colNumber.ReadOnly = True
-        '
-        'colName
-        '
-        Me.colName.HeaderText = "Name"
-        Me.colName.Name = "colName"
-        Me.colName.ReadOnly = True
-        '
-        'colItems
-        '
-        Me.colItems.HeaderText = "Items"
-        Me.colItems.Name = "colItems"
-        Me.colItems.ReadOnly = True
-        '
         'frmHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -647,9 +624,6 @@ Partial Class frmHistory
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents dtpTo As Guna.UI2.WinForms.Guna2DateTimePicker
-    Friend WithEvents colNumber As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colName As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents colItems As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnYearly As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnMonthly As Guna.UI2.WinForms.Guna2Button

@@ -5,18 +5,29 @@ Public Class frmMain
         populate()
         lblDate.Text = Format(Date.Now(), "D")
         StoreDate = Date.Now.ToString("MM-dd-yyyy")
+        GetOrderNumber()
+        grdItems.Select()
     End Sub
 
     Public Sub EnableNavigation()
         btnInventory.Enabled = True
         btnHistory.Enabled = True
         btnSetting.Enabled = True
+        btnSignOut.Enabled = True
     End Sub
 
     Public Sub DisableNavigation()
         btnInventory.Enabled = False
         btnHistory.Enabled = False
         btnSetting.Enabled = False
+        btnSignOut.Enabled = False
+    End Sub
+
+    Public Sub GetOrderNumber()
+        Using cmd As New OleDbCommand("SELECT COUNT(*) FROM tbl_transaction", con)
+            Dim count = cmd.ExecuteScalar()
+            lblOrderNumber.Text = count + 1
+        End Using
     End Sub
 
     Private Sub btnAddToOrder_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddToOrder.Click
@@ -71,17 +82,6 @@ Public Class frmMain
                 grdOrders.Rows.Remove(grdOrders.SelectedRows(0))
                 btnFilterAll.PerformClick()
             End If
-        End If
-    End Sub
-
-    Private Sub btnClearOrder_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClearOrder.Click
-        Dim result = dlgConfirmation.ShowDialog()
-        If result = DialogResult.Yes Then
-            grdOrders.Rows.Clear()
-            lblTotal.Text = 0
-            lblVAT.Text = 0
-            lblGtotal.Text = 0
-            populate()
         End If
     End Sub
 
@@ -146,12 +146,13 @@ Public Class frmMain
     End Sub
     'filters
     Public Sub Filter(ByVal name As String)
-        Using da As New OleDbDataAdapter("SELECT item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + name + "%'", con)
+        Using da As New OleDbDataAdapter("SELECT ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE category LIKE '%" + name + "%'", con)
             Dim dt As New DataTable
             dt.Clear()
             da.Fill(dt)
             grdItems.DataSource = dt.DefaultView
             grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            grdItems.Sort(grdItems.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
         End Using
         txtSearch.Text = ""
     End Sub
@@ -184,6 +185,11 @@ Public Class frmMain
         If result = DialogResult.Yes Then
             Dim result1 = dlgOrderComplete.ShowDialog()
             If result1 = DialogResult.Yes Then
+                grdOrders.Rows.Clear()
+                lblVAT.Text = ""
+                lblTotal.Text = ""
+                lblGtotal.Text = ""
+                GetOrderNumber()
                 btnFilterAll.PerformClick()
             End If
         End If

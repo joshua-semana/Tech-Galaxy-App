@@ -128,9 +128,9 @@ Partial Class dlgOrderName
         Me.Label1.Location = New System.Drawing.Point(88, 11)
         Me.Label1.Margin = New System.Windows.Forms.Padding(3, 10, 3, 10)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(124, 21)
+        Me.Label1.Size = New System.Drawing.Size(125, 21)
         Me.Label1.TabIndex = 13
-        Me.Label1.Text = "Name of buyer"
+        Me.Label1.Text = "Name of Buyer"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'dlgOrderName

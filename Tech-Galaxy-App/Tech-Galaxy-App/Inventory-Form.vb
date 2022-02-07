@@ -1,9 +1,10 @@
 ﻿Imports System.Data.OleDb
 Public Class frmInventory
-
     Private Sub frmInventory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Populate()
         btnInventory.PerformClick()
+        grdItems.Select()
+        grdItems_CellClick(Me.grdItems, New DataGridViewCellEventArgs(0, 0))
     End Sub
     Public Sub EnableEdit()
         txtID.Enabled = True
@@ -191,19 +192,15 @@ Public Class frmInventory
     End Sub
 
     Private Sub grdItems_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdItems.CellClick
-        Try
-            Dim index As Integer
-            index = e.RowIndex
-            Dim row As DataGridViewRow
-            row = grdItems.Rows(index)
-            txtID.Text = row.Cells(0).Value.ToString.Substring(3)
-            txtItemName.Text = row.Cells(1).Value.ToString
-            cmbCategory.Text = row.Cells(2).Value.ToString
-            txtPrice.Text = row.Cells(3).Value.ToString
-            numStock.Value = row.Cells(4).Value.ToString
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        Dim index As Integer
+        index = e.RowIndex
+        Dim row As DataGridViewRow
+        row = grdItems.Rows(index)
+        txtID.Text = row.Cells(0).Value.ToString.Substring(3)
+        txtItemName.Text = row.Cells(1).Value.ToString
+        cmbCategory.Text = row.Cells(2).Value.ToString
+        txtPrice.Text = row.Cells(3).Value.ToString
+        numStock.Value = row.Cells(4).Value.ToString
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click

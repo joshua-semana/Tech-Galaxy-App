@@ -23,14 +23,16 @@ Partial Class dlgViewHistory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlContainer = New Guna.UI2.WinForms.Guna2Panel()
+        Me.lblName = New System.Windows.Forms.Label()
+        Me.lblVAT = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblTotalPrice = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtItems = New Guna.UI2.WinForms.Guna2TextBox()
         Me.btnClose = New Guna.UI2.WinForms.Guna2Button()
         Me.lblOrderNumber = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblTotalPrice = New System.Windows.Forms.Label()
-        Me.lblVAT = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblDate = New System.Windows.Forms.Label()
         Me.pnlContainer.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -38,6 +40,8 @@ Partial Class dlgViewHistory
         '
         Me.pnlContainer.BorderColor = System.Drawing.Color.DarkGray
         Me.pnlContainer.BorderThickness = 1
+        Me.pnlContainer.Controls.Add(Me.lblDate)
+        Me.pnlContainer.Controls.Add(Me.lblName)
         Me.pnlContainer.Controls.Add(Me.lblVAT)
         Me.pnlContainer.Controls.Add(Me.Label4)
         Me.pnlContainer.Controls.Add(Me.lblTotalPrice)
@@ -54,6 +58,69 @@ Partial Class dlgViewHistory
         Me.pnlContainer.ShadowDecoration.Parent = Me.pnlContainer
         Me.pnlContainer.Size = New System.Drawing.Size(435, 346)
         Me.pnlContainer.TabIndex = 2
+        '
+        'lblName
+        '
+        Me.lblName.BackColor = System.Drawing.Color.Transparent
+        Me.lblName.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.lblName.ForeColor = System.Drawing.Color.Black
+        Me.lblName.Location = New System.Drawing.Point(232, 40)
+        Me.lblName.Margin = New System.Windows.Forms.Padding(3, 10, 3, 10)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(190, 21)
+        Me.lblName.TabIndex = 32
+        Me.lblName.Text = "By:"
+        Me.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblVAT
+        '
+        Me.lblVAT.BackColor = System.Drawing.Color.White
+        Me.lblVAT.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.lblVAT.ForeColor = System.Drawing.Color.Black
+        Me.lblVAT.Location = New System.Drawing.Point(114, 270)
+        Me.lblVAT.Name = "lblVAT"
+        Me.lblVAT.Size = New System.Drawing.Size(307, 21)
+        Me.lblVAT.TabIndex = 31
+        Me.lblVAT.Text = "0"
+        Me.lblVAT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.White
+        Me.Label4.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(13, 270)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(44, 21)
+        Me.Label4.TabIndex = 30
+        Me.Label4.Text = "VAT:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblTotalPrice
+        '
+        Me.lblTotalPrice.BackColor = System.Drawing.Color.White
+        Me.lblTotalPrice.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.lblTotalPrice.ForeColor = System.Drawing.Color.Black
+        Me.lblTotalPrice.Location = New System.Drawing.Point(114, 239)
+        Me.lblTotalPrice.Name = "lblTotalPrice"
+        Me.lblTotalPrice.Size = New System.Drawing.Size(307, 21)
+        Me.lblTotalPrice.TabIndex = 29
+        Me.lblTotalPrice.Text = "0"
+        Me.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.White
+        Me.Label1.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(13, 239)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(95, 21)
+        Me.Label1.TabIndex = 28
+        Me.Label1.Text = "Total Price:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label3
         '
@@ -124,63 +191,26 @@ Partial Class dlgViewHistory
         Me.lblOrderNumber.BackColor = System.Drawing.Color.Transparent
         Me.lblOrderNumber.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
         Me.lblOrderNumber.ForeColor = System.Drawing.Color.Black
-        Me.lblOrderNumber.Location = New System.Drawing.Point(122, 11)
+        Me.lblOrderNumber.Location = New System.Drawing.Point(13, 12)
         Me.lblOrderNumber.Margin = New System.Windows.Forms.Padding(3, 10, 3, 10)
         Me.lblOrderNumber.Name = "lblOrderNumber"
         Me.lblOrderNumber.Size = New System.Drawing.Size(190, 21)
         Me.lblOrderNumber.TabIndex = 14
         Me.lblOrderNumber.Text = "Order No. #"
-        Me.lblOrderNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblOrderNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label1
+        'lblDate
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.White
-        Me.Label1.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(13, 239)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 21)
-        Me.Label1.TabIndex = 28
-        Me.Label1.Text = "Total Price:"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblTotalPrice
-        '
-        Me.lblTotalPrice.BackColor = System.Drawing.Color.White
-        Me.lblTotalPrice.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.lblTotalPrice.ForeColor = System.Drawing.Color.Black
-        Me.lblTotalPrice.Location = New System.Drawing.Point(114, 239)
-        Me.lblTotalPrice.Name = "lblTotalPrice"
-        Me.lblTotalPrice.Size = New System.Drawing.Size(307, 21)
-        Me.lblTotalPrice.TabIndex = 29
-        Me.lblTotalPrice.Text = "0"
-        Me.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblVAT
-        '
-        Me.lblVAT.BackColor = System.Drawing.Color.White
-        Me.lblVAT.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.lblVAT.ForeColor = System.Drawing.Color.Black
-        Me.lblVAT.Location = New System.Drawing.Point(114, 270)
-        Me.lblVAT.Name = "lblVAT"
-        Me.lblVAT.Size = New System.Drawing.Size(307, 21)
-        Me.lblVAT.TabIndex = 31
-        Me.lblVAT.Text = "0"
-        Me.lblVAT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.White
-        Me.Label4.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(13, 270)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(44, 21)
-        Me.Label4.TabIndex = 30
-        Me.Label4.Text = "VAT:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblDate.BackColor = System.Drawing.Color.Transparent
+        Me.lblDate.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.lblDate.ForeColor = System.Drawing.Color.Black
+        Me.lblDate.Location = New System.Drawing.Point(231, 12)
+        Me.lblDate.Margin = New System.Windows.Forms.Padding(3, 10, 3, 10)
+        Me.lblDate.Name = "lblDate"
+        Me.lblDate.Size = New System.Drawing.Size(190, 21)
+        Me.lblDate.TabIndex = 33
+        Me.lblDate.Text = "Date"
+        Me.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'dlgViewHistory
         '
@@ -209,5 +239,7 @@ Partial Class dlgViewHistory
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents lblTotalPrice As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblName As System.Windows.Forms.Label
+    Friend WithEvents lblDate As System.Windows.Forms.Label
 
 End Class

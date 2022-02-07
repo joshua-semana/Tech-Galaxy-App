@@ -1,4 +1,6 @@
-﻿Public Class frmHistory
+﻿Imports System.Data.OleDb
+
+Public Class frmHistory
     Public Sub EnableCustomDate()
         dtpFrom.Enabled = True
         dtpTo.Enabled = True
@@ -10,13 +12,17 @@
     End Sub
 
     Private Sub frmHistory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        With grdTransactions
-            .Rows.Add(New String() {"#001", "Joshua", "1x AMD Ryzen 3, 1x Motherbaord, 2x Memory, 1x Power Supply, 1x Case, 1x Others"})
-            .Rows.Add(New String() {"#002", "Roen", "1x AMD Ryzen 3, 1x Motherbaord, 2x Memory, 1x Power Supply, 1x Case, 1x Others"})
-            .Rows.Add(New String() {"#003", "Jacob", "1x AMD Ryzen 3, 1x Motherbaord, 2x Memory, 1x Power Supply, 1x Case, 1x Others"})
-            .Rows.Add(New String() {"#004", "Mick", "1x AMD Ryzen 3, 1x Motherbaord, 2x Memory, 1x Power Supply, 1x Case, 1x Others"})
-            .Rows.Add(New String() {"#005", "Gabriel Luna", "1x AMD Ryzen 3, 1x Motherbaord, 2x Memory, 1x Power Supply, 1x Case, 1x Others"})
-        End With
+        populate()
+    End Sub
+
+    Public Sub populate()
+        Using da As New OleDbDataAdapter("SELECT order_ID As Order_ID, name AS Buyer_Name, item AS Order_Items, date AS Order_Date FROM tbl_transaction", con)
+            Dim dt As New DataTable
+            da.Fill(dt)
+            grdTransactions.DataSource = dt.DefaultView
+            grdTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            grdTransactions.Sort(grdTransactions.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
+        End Using
     End Sub
 
     Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown

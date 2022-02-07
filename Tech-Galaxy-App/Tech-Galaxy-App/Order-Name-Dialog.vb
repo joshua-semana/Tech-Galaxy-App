@@ -9,7 +9,7 @@ Public Class dlgOrderName
             Using cmd As New OleDbCommand("INSERT INTO tbl_transaction ([order_ID], [name], [Item], [date], [total], [vat]) VALUES(@ID, @name, @item, @date, @total, @vat)", con)
                 With cmd.Parameters
                     .AddWithValue("@ID", frmMain.lblOrderNumber.Text)
-                    .AddWithValue("@name", txtName.Text)
+                    .AddWithValue("@name", txtName.Text.ToUpper)
                     Dim Items As String = ""
                     For Each orders As DataGridViewRow In frmMain.grdOrders.Rows
                         Items = Items + orders.Cells(0).Value.ToString + "x " + orders.Cells(2).Value.ToString + " "
@@ -20,7 +20,6 @@ Public Class dlgOrderName
                     .AddWithValue("@vat", frmMain.lblVAT.Text)
                 End With
                 cmd.ExecuteReader()
-                MessageBox.Show("successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Using
             Me.DialogResult = System.Windows.Forms.DialogResult.Yes
             Me.Close()
