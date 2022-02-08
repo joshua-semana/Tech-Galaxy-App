@@ -75,7 +75,19 @@ Public Class frmHistory
 
     Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown
         If e.KeyCode = Keys.Enter Then
-            'Do Search
+            Using da As New OleDbDataAdapter("SELECT order_ID As Order_ID, name AS Buyer_Name, item AS Order_Items, date AS Order_Date FROM tbl_transaction WHERE order_ID LIKE '%" + txtSearch.Text + "%'", con)
+                Dim dt As New DataTable
+                dt.Clear()
+                da.Fill(dt)
+                grdTransactions.DataSource = dt.DefaultView
+                grdTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+                grdTransactions.Sort(grdTransactions.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
+            End Using
+            If grdTransactions.Rows.Count <> 0 Then
+                btnView.Enabled = True
+            Else
+                btnView.Enabled = False
+            End If
         End If
     End Sub
 
@@ -126,6 +138,12 @@ Public Class frmHistory
 
     Private Sub dtpTo_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtpTo.ValueChanged
         PopulateSalesCustom()
+    End Sub
+
+    Private Sub txtSearch_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSearch.KeyPress
+        If Not Char.IsNumber(e.KeyChar) And Not e.KeyChar = Chr(Keys.Delete) And Not e.KeyChar = Chr(Keys.Back) And Not e.KeyChar = Chr(Keys.Space) Then
+            e.Handled = True
+        End If
     End Sub
 End Class
 

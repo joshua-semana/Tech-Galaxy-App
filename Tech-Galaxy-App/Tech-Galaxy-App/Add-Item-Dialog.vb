@@ -43,8 +43,9 @@ Public Class dlgAddItem
             cmd.ExecuteNonQuery()
             MessageBox.Show("You have successfully created a new item.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Using
-            frmInventory.grdItems_CellClick(frmInventory.grdItems, New DataGridViewCellEventArgs(0, 0))
-            Me.Close()
+        frmInventory.btnFilterAll.PerformClick()
+        frmInventory.grdItems_CellClick(frmInventory.grdItems, New DataGridViewCellEventArgs(0, 0))
+        Me.Close()
     End Sub
 
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click

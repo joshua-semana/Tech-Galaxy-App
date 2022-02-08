@@ -188,6 +188,7 @@ Public Class frmInventory
         End Using
         txtSearch.Text = ""
         btnEdit.Enabled = True
+        btnAddStock.Enabled = True
         grdItems_CellClick(Me.grdItems, New DataGridViewCellEventArgs(0, 0))
     End Sub
 

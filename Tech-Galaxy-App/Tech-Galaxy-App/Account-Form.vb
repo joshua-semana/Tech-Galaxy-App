@@ -43,6 +43,7 @@
 
         lblConfirm.Visible = False
         txtConfirmPassword.Visible = False
+        Populate()
     End Sub
     'method for table item to data grid view
     Public Sub Populate()
@@ -52,6 +53,7 @@
             grdAccounts.DataSource = dt.DefaultView
             btnEdit.Enabled = True
             grdAccounts_CellClick(Me.grdAccounts, New DataGridViewCellEventArgs(0, 0))
+            grdAccounts.Sort(grdAccounts.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
         End Using
         txtSearch.Text = ""
     End Sub

@@ -28,6 +28,7 @@ Public Class dlgAddAccount
         End Using
         MessageBox.Show("You have successfully created a new account.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         ClearData()
+        frmAccount.Populate()
         Me.DialogResult = System.Windows.Forms.DialogResult.Yes
         Me.Close()
     End Sub

@@ -35,8 +35,6 @@ Public Class frmMain
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         populate()
         lblDate.Text = Format(Date.Now(), "D")
-        StoreDate = Date.Now.ToString("MM-dd-yyyy")
-        formOpen = 1
         GetOrderNumber()
         grdItems.Select()
     End Sub

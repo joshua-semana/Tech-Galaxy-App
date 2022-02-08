@@ -10,8 +10,8 @@ Public Class dlgOrderName
         If txtName.Text = "" Then
             MessageBox.Show("Please enter the buyers name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
-            If frmMain.Visible = True Then
-                Using cmd As New OleDbCommand("INSERT INTO tbl_transaction ([order_ID], [name], [Item], [date], [total], [vat]) VALUES(@ID, @name, @item, @date, @total, @vat)", con)
+            Using cmd As New OleDbCommand("INSERT INTO tbl_transaction ([order_ID], [name], [Item], [date], [total], [vat]) VALUES(@ID, @name, @item, @date, @total, @vat)", con)
+                If frmMain.Visible = True Then
                     With cmd.Parameters
                         .AddWithValue("@ID", frmMain.lblOrderNumber.Text)
                         .AddWithValue("@name", txtName.Text.ToUpper)
@@ -24,12 +24,7 @@ Public Class dlgOrderName
                         .AddWithValue("@total", frmMain.lblGtotal.Text)
                         .AddWithValue("@vat", frmMain.lblVAT.Text)
                     End With
-                    cmd.ExecuteReader()
-                End Using
-                Me.DialogResult = System.Windows.Forms.DialogResult.Yes
-                Me.Close()
-            Else
-                Using cmd As New OleDbCommand("INSERT INTO tbl_transaction ([order_ID], [name], [Item], [date], [total], [vat]) VALUES(@ID, @name, @item, @date, @total, @vat)", con)
+                Else
                     With cmd.Parameters
                         .AddWithValue("@ID", frmUserMain.lblOrderNumber.Text)
                         .AddWithValue("@name", txtName.Text.ToUpper)
@@ -42,11 +37,11 @@ Public Class dlgOrderName
                         .AddWithValue("@total", frmUserMain.lblGtotal.Text)
                         .AddWithValue("@vat", frmUserMain.lblVAT.Text)
                     End With
-                    cmd.ExecuteReader()
-                End Using
-                Me.DialogResult = System.Windows.Forms.DialogResult.Yes
-                Me.Close()
-            End If
+                End If
+                cmd.ExecuteReader()
+            End Using
+            Me.DialogResult = System.Windows.Forms.DialogResult.Yes
+            Me.Close()
         End If
     End Sub
     'btn Cancel
