@@ -33,6 +33,7 @@ Public Class frmInventory
         btnMain.Enabled = False
         btnHistory.Enabled = False
         btnSetting.Enabled = False
+        btnSignOut.Enabled = False
     End Sub
     Public Sub DisableEdit()
         txtID.Enabled = False
@@ -61,6 +62,7 @@ Public Class frmInventory
         btnMain.Enabled = True
         btnHistory.Enabled = True
         btnSetting.Enabled = True
+        btnSignOut.Enabled = True
     End Sub
 
     Private Sub btnEdit_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.CheckedChanged
@@ -68,6 +70,7 @@ Public Class frmInventory
             EnableEdit()
         Else
             DisableEdit()
+            grdItems_CellClick(Me.grdItems, New DataGridViewCellEventArgs(0, 0))
         End If
     End Sub
 
@@ -147,14 +150,31 @@ Public Class frmInventory
     'filters
     Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown
         If e.KeyCode = Keys.Enter Then
-            Using da As New OleDbDataAdapter("SELECT ID AS Product_ID, item_name AS Name, category AS Category, price AS Price, stock AS Stock FROM tbl_items WHERE item_name LIKE '%" + txtSearch.Text + "%'", con)
+            Using da As New OleDbDataAdapter("SELECT [ID] AS [Product_ID], [item_name] AS [Name], [category] AS [Category], [price] AS [Price], [stock] AS [Stock] FROM tbl_items WHERE [item_name] LIKE '%" + txtSearch.Text + "%'", con)
                 Dim dt As New DataTable
                 dt.Clear()
                 da.Fill(dt)
                 grdItems.DataSource = dt.DefaultView
                 grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             End Using
+            If grdItems.Rows.Count <> 0 Then
+                btnEdit.Enabled = True
+                btnAddStock.Enabled = True
+                grdItems_CellClick(Me.grdItems, New DataGridViewCellEventArgs(0, 0))
+            Else
+                DisablePreview()
+            End If
         End If
+    End Sub
+
+    Public Sub DisablePreview()
+        btnAddStock.Enabled = False
+        btnEdit.Enabled = False
+        txtID.Text = ""
+        txtItemName.Text = ""
+        cmbCategory.Text = ""
+        txtPrice.Text = ""
+        numStock.Value = 0
     End Sub
 
     Public Sub Filter(ByVal name As String)
@@ -164,8 +184,11 @@ Public Class frmInventory
             da.Fill(dt)
             grdItems.DataSource = dt.DefaultView
             grdItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            grdItems.Sort(grdItems.Columns(0), System.ComponentModel.ListSortDirection.Ascending)
         End Using
         txtSearch.Text = ""
+        btnEdit.Enabled = True
+        grdItems_CellClick(Me.grdItems, New DataGridViewCellEventArgs(0, 0))
     End Sub
 
     Private Sub btnFilterAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilterAll.Click
@@ -191,7 +214,7 @@ Public Class frmInventory
         Filter("Others")
     End Sub
 
-    Private Sub grdItems_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdItems.CellClick
+    Public Sub grdItems_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles grdItems.CellClick
         Dim index As Integer
         index = e.RowIndex
         Dim row As DataGridViewRow
@@ -204,20 +227,30 @@ Public Class frmInventory
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        Using cmd As New OleDb.OleDbCommand("UPDATE tbl_items SET [item_name] = @item, [category] = @category, [price] = @price, [stock] = @stock WHERE ID = @id", con)
-            With cmd.Parameters
-                .AddWithValue("@item", txtItemName.Text)
-                .AddWithValue("@@category", cmbCategory.Text)
-                .AddWithValue("@price", txtPrice.Text)
-                .AddWithValue("@stock", numStock.Value)
-                .AddWithValue("@id", grdItems.SelectedCells(0).Value)
-            End With
-            Dim result = cmd.ExecuteNonQuery
-            If result > 0 Then
-                MessageBox.Show("Information has been updated.", "Notice", MessageBoxButtons.OK)
-                btnCancel.PerformClick()
+        Try
+            If txtID.Text = "" Or txtItemName.Text = "" Or cmbCategory.Text = "" Or txtPrice.Text = "" Or String.IsNullOrEmpty(numStock.Value) Then
+                MessageBox.Show("Please enter the necessary informations.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Else
+                Using cmd As New OleDb.OleDbCommand("UPDATE tbl_items SET [item_name] = @item, [category] = @category, [price] = @price, [stock] = @stock WHERE ID = @id", con)
+                    With cmd.Parameters
+                        .AddWithValue("@item", txtItemName.Text)
+                        .AddWithValue("@@category", cmbCategory.Text)
+                        .AddWithValue("@price", txtPrice.Text)
+                        .AddWithValue("@stock", numStock.Value)
+                        .AddWithValue("@id", grdItems.SelectedCells(0).Value)
+                    End With
+                    Dim result = cmd.ExecuteNonQuery
+                    If result > 0 Then
+                        MessageBox.Show("Information has been updated.", "Notice", MessageBoxButtons.OK)
+                        btnCancel.PerformClick()
+                        grdItems_CellClick(Me.grdItems, New DataGridViewCellEventArgs(0, 0))
+                    End If
+                End Using
             End If
-        End Using
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub btnInventory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInventory.Click
@@ -240,4 +273,5 @@ Public Class frmInventory
                 lblPrefix.Text = "Oth - "
         End Select
     End Sub
+
 End Class

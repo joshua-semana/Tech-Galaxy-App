@@ -23,6 +23,9 @@ Partial Class dlgAddItem
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.pnlContainer = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtID = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.lblPrefix = New System.Windows.Forms.Label()
         Me.cmbCategory = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -34,9 +37,6 @@ Partial Class dlgAddItem
         Me.btnCancel = New Guna.UI2.WinForms.Guna2Button()
         Me.btnAdd = New Guna.UI2.WinForms.Guna2Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblPrefix = New System.Windows.Forms.Label()
-        Me.txtID = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.pnlContainer.SuspendLayout()
         CType(Me.numStock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -68,6 +68,59 @@ Partial Class dlgAddItem
         Me.pnlContainer.Size = New System.Drawing.Size(300, 429)
         Me.pnlContainer.TabIndex = 2
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.White
+        Me.Label6.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(6, 38)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(93, 21)
+        Me.Label6.TabIndex = 40
+        Me.Label6.Text = "Product ID"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtID
+        '
+        Me.txtID.Animated = True
+        Me.txtID.BorderRadius = 5
+        Me.txtID.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtID.DefaultText = ""
+        Me.txtID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtID.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtID.DisabledState.Parent = Me.txtID
+        Me.txtID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtID.FocusedState.Parent = Me.txtID
+        Me.txtID.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.txtID.ForeColor = System.Drawing.Color.Black
+        Me.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtID.HoverState.Parent = Me.txtID
+        Me.txtID.Location = New System.Drawing.Point(68, 64)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(5)
+        Me.txtID.Name = "txtID"
+        Me.txtID.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtID.PlaceholderText = ""
+        Me.txtID.SelectedText = ""
+        Me.txtID.ShadowDecoration.Parent = Me.txtID
+        Me.txtID.Size = New System.Drawing.Size(221, 36)
+        Me.txtID.TabIndex = 39
+        '
+        'lblPrefix
+        '
+        Me.lblPrefix.AutoSize = True
+        Me.lblPrefix.BackColor = System.Drawing.Color.White
+        Me.lblPrefix.Font = New System.Drawing.Font("Consolas", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
+        Me.lblPrefix.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
+        Me.lblPrefix.Location = New System.Drawing.Point(7, 73)
+        Me.lblPrefix.Name = "lblPrefix"
+        Me.lblPrefix.Size = New System.Drawing.Size(63, 19)
+        Me.lblPrefix.TabIndex = 38
+        Me.lblPrefix.Text = "Prc - "
+        Me.lblPrefix.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'cmbCategory
         '
         Me.cmbCategory.Animated = True
@@ -89,6 +142,7 @@ Partial Class dlgAddItem
         Me.cmbCategory.Name = "cmbCategory"
         Me.cmbCategory.ShadowDecoration.Parent = Me.cmbCategory
         Me.cmbCategory.Size = New System.Drawing.Size(279, 36)
+        Me.cmbCategory.StartIndex = 0
         Me.cmbCategory.TabIndex = 37
         '
         'Label4
@@ -279,59 +333,6 @@ Partial Class dlgAddItem
         Me.Label1.TabIndex = 13
         Me.Label1.Text = "Add Item"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblPrefix
-        '
-        Me.lblPrefix.AutoSize = True
-        Me.lblPrefix.BackColor = System.Drawing.Color.White
-        Me.lblPrefix.Font = New System.Drawing.Font("Consolas", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.lblPrefix.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.lblPrefix.Location = New System.Drawing.Point(7, 73)
-        Me.lblPrefix.Name = "lblPrefix"
-        Me.lblPrefix.Size = New System.Drawing.Size(63, 19)
-        Me.lblPrefix.TabIndex = 38
-        Me.lblPrefix.Text = "Prc - "
-        Me.lblPrefix.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'txtID
-        '
-        Me.txtID.Animated = True
-        Me.txtID.BorderRadius = 5
-        Me.txtID.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtID.DefaultText = ""
-        Me.txtID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtID.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtID.DisabledState.Parent = Me.txtID
-        Me.txtID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtID.FocusedState.Parent = Me.txtID
-        Me.txtID.Font = New System.Drawing.Font("Varela Round", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.txtID.ForeColor = System.Drawing.Color.Black
-        Me.txtID.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtID.HoverState.Parent = Me.txtID
-        Me.txtID.Location = New System.Drawing.Point(68, 64)
-        Me.txtID.Margin = New System.Windows.Forms.Padding(5)
-        Me.txtID.Name = "txtID"
-        Me.txtID.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtID.PlaceholderText = ""
-        Me.txtID.SelectedText = ""
-        Me.txtID.ShadowDecoration.Parent = Me.txtID
-        Me.txtID.Size = New System.Drawing.Size(221, 36)
-        Me.txtID.TabIndex = 39
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.White
-        Me.Label6.Font = New System.Drawing.Font("Varela Round", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(118, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(6, 38)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(93, 21)
-        Me.Label6.TabIndex = 40
-        Me.Label6.Text = "Product ID"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'dlgAddItem
         '

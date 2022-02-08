@@ -10,7 +10,7 @@ Public Class dlgOrderName
         If txtName.Text = "" Then
             MessageBox.Show("Please enter the buyers name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
-            If formOpen = 1 Then
+            If frmMain.Visible = True Then
                 Using cmd As New OleDbCommand("INSERT INTO tbl_transaction ([order_ID], [name], [Item], [date], [total], [vat]) VALUES(@ID, @name, @item, @date, @total, @vat)", con)
                     With cmd.Parameters
                         .AddWithValue("@ID", frmMain.lblOrderNumber.Text)
@@ -20,7 +20,7 @@ Public Class dlgOrderName
                             Items = Items + orders.Cells(0).Value.ToString + "x " + orders.Cells(2).Value.ToString + " "
                         Next
                         .AddWithValue("@item", Items)
-                        .AddWithValue("@date", StoreDate)
+                        .AddWithValue("@date", Format(Now, "short Date"))
                         .AddWithValue("@total", frmMain.lblGtotal.Text)
                         .AddWithValue("@vat", frmMain.lblVAT.Text)
                     End With
@@ -38,7 +38,7 @@ Public Class dlgOrderName
                             Items = Items + orders.Cells(0).Value.ToString + "x " + orders.Cells(2).Value.ToString + " "
                         Next
                         .AddWithValue("@item", Items)
-                        .AddWithValue("@date", StoreDate)
+                        .AddWithValue("@date", Date.Now.ToString("MM-dd-yyyy"))
                         .AddWithValue("@total", frmUserMain.lblGtotal.Text)
                         .AddWithValue("@vat", frmUserMain.lblVAT.Text)
                     End With

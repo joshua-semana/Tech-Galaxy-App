@@ -17,7 +17,7 @@ Public Class dlgViewHistory
                 lblOrderNumber.Text = "Order No. #" + dt.Rows(0)(0).ToString()
                 lblName.Text = "By: " + dt.Rows(0)(1).ToString()
                 txtItems.Text = dt.Rows(0)(2).ToString()
-                lblDate.Text = dt.Rows(0)(3).ToString()
+                lblDate.Text = Format(dt.Rows(0)(3).ToString(), "short Date")
                 lblTotalPrice.Text = dt.Rows(0)(4).ToString()
                 lblVAT.Text = dt.Rows(0)(5).ToString()
             End Using

@@ -8,17 +8,19 @@ Public Class dlgAddStock
                 .AddWithValue("@stock", numQuantity.Value + frmInventory.numStock.Value)
                 .AddWithValue("@id", frmInventory.grdItems.SelectedCells(0).Value)
             End With
-            Dim result = cmd.ExecuteNonQuery
-            If result > 0 Then
-                MessageBox.Show("Information has been updated.", "Notice", MessageBoxButtons.OK)
-            End If
+            cmd.ExecuteNonQuery()
         End Using
         frmInventory.btnFilterAll.PerformClick()
+        frmInventory.grdItems_CellClick(frmInventory.grdItems, New DataGridViewCellEventArgs(0, 0))
         Me.Close()
     End Sub
 
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         numQuantity.Value = 1
         Me.Close()
+    End Sub
+
+    Private Sub dlgAddStock_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        numQuantity.Value = 1
     End Sub
 End Class

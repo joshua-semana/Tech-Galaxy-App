@@ -15,27 +15,37 @@ Public Class dlgAddItem
         If txtID.Text = "" Or txtItemName.Text = "" Or cmbCategory.Text = "" Or txtPrice.Text = "" Then
             MessageBox.Show("Please enter the necessary information to continue.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-            AddItem()
+            Using cmd As New OleDbCommand("SELECT * FROM tbl_items WHERE [ID] = @id", con)
+                cmd.Parameters.AddWithValue("@id", lblPrefix.Text.Substring(0, 3).ToString + txtID.Text.ToString)
+                cmd.ExecuteNonQuery()
+                Using da As New OleDbDataAdapter(cmd)
+                    Dim dt As New DataTable
+                    da.Fill(dt)
+                    If dt.Rows.Count > 0 Then
+                        MessageBox.Show("ID already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        AddItem()
+                    End If
+                End Using
+
+            End Using
         End If
     End Sub
 
     Public Sub AddItem()
-        Try
-            Using cmd As New OleDbCommand("INSERT INTO tbl_items ([ID], [item_name], [category], [price], [stock]) VALUES(@ID, @item_name, @category, @price, @stock)", con)
-                With cmd.Parameters
-                    .AddWithValue("@ID", lblPrefix.Text.Substring(0, 3) + txtID.Text)
-                    .AddWithValue("@item_name", txtItemName.Text)
-                    .AddWithValue("@category", cmbCategory.Text)
-                    .AddWithValue("@price", txtPrice.Text)
-                    .AddWithValue("@stock", numStock.Value)
-                End With
-                cmd.ExecuteReader()
-                MessageBox.Show("You have successfully created a new item.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End Using
+        Using cmd As New OleDbCommand("INSERT INTO tbl_items ([ID], [item_name], [category], [price], [stock]) VALUES(@ID, @item_name, @category, @price, @stock)", con)
+            With cmd.Parameters
+                .AddWithValue("@ID", lblPrefix.Text.Substring(0, 3) + txtID.Text)
+                .AddWithValue("@item_name", txtItemName.Text)
+                .AddWithValue("@category", cmbCategory.Text)
+                .AddWithValue("@price", txtPrice.Text)
+                .AddWithValue("@stock", numStock.Value)
+            End With
+            cmd.ExecuteNonQuery()
+            MessageBox.Show("You have successfully created a new item.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Using
+            frmInventory.grdItems_CellClick(frmInventory.grdItems, New DataGridViewCellEventArgs(0, 0))
             Me.Close()
-        Catch ex As Exception
-            MessageBox.Show("Duplicated", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End Try
     End Sub
 
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
