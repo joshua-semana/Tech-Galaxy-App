@@ -1,4 +1,6 @@
-﻿Public Class dlgAddAccount
+﻿Imports System.Data.OleDb
+
+Public Class dlgAddAccount
     'method for clear data
     Public Sub ClearData()
         txtFirstname.Text = ""
@@ -37,7 +39,19 @@
             If txtPassword.Text <> txtConfirmPassword.Text Then
                 MessageBox.Show("Password do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                AddAccount()
+                Using cmd As New OleDbCommand("SELECT * FROM tbl_login WHERE [username] = @username", con)
+                    cmd.Parameters.AddWithValue("@username", txtUsername.Text)
+                    cmd.ExecuteNonQuery()
+                    Using da As New OleDbDataAdapter(cmd)
+                        Dim dt As New DataTable
+                        da.Fill(dt)
+                        If dt.Rows.Count > 0 Then
+                            MessageBox.Show("Username already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Else
+                            AddAccount()
+                        End If
+                    End Using
+                End Using
             End If
         End If
     End Sub

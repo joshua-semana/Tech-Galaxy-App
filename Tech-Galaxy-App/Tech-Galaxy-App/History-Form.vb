@@ -14,6 +14,9 @@ Public Class frmHistory
     End Sub
 
     Private Sub frmHistory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        dtpDaily.Value = Date.Now
+        dtpFrom.Value = Date.Now
+        dtpTo.Value = Date.Now
         populate()
     End Sub
 
@@ -38,6 +41,14 @@ Public Class frmHistory
                 grdSales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             End Using
         End Using
+        Dim sale As Integer
+        Dim vat As Integer
+        For Each orders As DataGridViewRow In grdSales.Rows
+            sale = sale + orders.Cells(2).Value
+            vat = vat + orders.Cells(3).Value
+        Next
+        lblSales.Text = sale
+        lblVAT.Text = vat
     End Sub
 
     Public Sub PopulateSalesCustom()
@@ -52,6 +63,14 @@ Public Class frmHistory
                 grdSales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             End Using
         End Using
+        Dim sale As Integer
+        Dim vat As Integer
+        For Each orders As DataGridViewRow In grdSales.Rows
+            sale = sale + orders.Cells(2).Value
+            vat = vat + orders.Cells(3).Value
+        Next
+        lblSales.Text = sale
+        lblVAT.Text = vat
     End Sub
 
     Private Sub txtSearch_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSearch.KeyDown

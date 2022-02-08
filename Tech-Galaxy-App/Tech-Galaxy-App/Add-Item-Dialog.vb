@@ -27,7 +27,6 @@ Public Class dlgAddItem
                         AddItem()
                     End If
                 End Using
-
             End Using
         End If
     End Sub
@@ -53,7 +52,7 @@ Public Class dlgAddItem
         Me.Close()
     End Sub
 
-    Private Sub txtPrice_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtPrice.KeyPress
+    Private Sub txtPrice_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtPrice.KeyPress, txtID.KeyPress
         If Not Char.IsNumber(e.KeyChar) And Not e.KeyChar = Chr(Keys.Delete) And Not e.KeyChar = Chr(Keys.Back) And Not e.KeyChar = Chr(Keys.Space) Then
             e.Handled = True
             MsgBox("Please Enter Number Only", vbCritical)

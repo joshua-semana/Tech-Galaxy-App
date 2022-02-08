@@ -18,6 +18,7 @@
         btnMain.Enabled = False
         btnInventory.Enabled = False
         btnHistory.Enabled = False
+        btnSignOut.Enabled = False
     End Sub
     'method for disable edit
     Public Sub DisableEdit()
@@ -38,6 +39,7 @@
         btnMain.Enabled = True
         btnInventory.Enabled = True
         btnHistory.Enabled = True
+        btnSignOut.Enabled = True
 
         lblConfirm.Visible = False
         txtConfirmPassword.Visible = False
@@ -48,11 +50,15 @@
             Dim dt As New DataTable
             adp.Fill(dt)
             grdAccounts.DataSource = dt.DefaultView
+            btnEdit.Enabled = True
+            grdAccounts_CellClick(Me.grdAccounts, New DataGridViewCellEventArgs(0, 0))
         End Using
+        txtSearch.Text = ""
     End Sub
     'Form Load
     Private Sub frmAccount_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Populate()
+        grdAccounts_CellClick(Me.grdAccounts, New DataGridViewCellEventArgs(0, 0))
     End Sub
     'side panel
     Private Sub btnMain_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMain.Click
@@ -159,9 +165,25 @@
                 adp.Fill(dt)
                 grdAccounts.DataSource = dt.DefaultView
                 grdAccounts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+
+                If dt.Rows.Count <> 0 Then
+                    btnEdit.Enabled = True
+                    grdAccounts_CellClick(Me.grdAccounts, New DataGridViewCellEventArgs(0, 0))
+                Else
+                    DisablePreview()
+                End If
             End Using
         End If
     End Sub
+
+    Public Sub DisablePreview()
+        btnEdit.Enabled = False
+        txtFirstname.Text = ""
+        txtLastname.Text = ""
+        txtUsername.Text = ""
+        txtLastname.Text = ""
+    End Sub
+
     'function for password text box
     Private Sub txtPassword_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtPassword.TextChanged
         If txtPassword.Enabled = True Then

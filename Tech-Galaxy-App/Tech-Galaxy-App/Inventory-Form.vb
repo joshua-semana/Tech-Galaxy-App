@@ -227,30 +227,45 @@ Public Class frmInventory
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        Try
-            If txtID.Text = "" Or txtItemName.Text = "" Or cmbCategory.Text = "" Or txtPrice.Text = "" Or String.IsNullOrEmpty(numStock.Value) Then
-                MessageBox.Show("Please enter the necessary informations.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Else
-                Using cmd As New OleDb.OleDbCommand("UPDATE tbl_items SET [item_name] = @item, [category] = @category, [price] = @price, [stock] = @stock WHERE ID = @id", con)
-                    With cmd.Parameters
-                        .AddWithValue("@item", txtItemName.Text)
-                        .AddWithValue("@@category", cmbCategory.Text)
-                        .AddWithValue("@price", txtPrice.Text)
-                        .AddWithValue("@stock", numStock.Value)
-                        .AddWithValue("@id", grdItems.SelectedCells(0).Value)
-                    End With
-                    Dim result = cmd.ExecuteNonQuery
-                    If result > 0 Then
-                        MessageBox.Show("Information has been updated.", "Notice", MessageBoxButtons.OK)
-                        btnCancel.PerformClick()
-                        grdItems_CellClick(Me.grdItems, New DataGridViewCellEventArgs(0, 0))
-                    End If
+        If txtID.Text = "" Or txtItemName.Text = "" Or cmbCategory.Text = "" Or txtPrice.Text = "" Or String.IsNullOrEmpty(numStock.Value) Then
+            MessageBox.Show("Please enter the necessary informations.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            If cmbCategory.Text <> grdItems.SelectedCells(2).Value.ToString Then
+                Using cmd As New OleDbCommand("SELECT * FROM tbl_items WHERE [ID] = @id", con)
+                    cmd.Parameters.AddWithValue("@id", lblPrefix.Text.Substring(0, 3).ToString + txtID.Text.ToString)
+                    cmd.ExecuteNonQuery()
+                    Using da As New OleDbDataAdapter(cmd)
+                        Dim dt As New DataTable
+                        da.Fill(dt)
+                        If dt.Rows.Count > 0 Then
+                            MessageBox.Show("ID already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Else
+                            UpdateItem()
+                        End If
+                    End Using
                 End Using
+            Else
+                UpdateItem()
             End If
-        Catch ex As Exception
+        End If
+    End Sub
 
-        End Try
-
+    Public Sub UpdateItem()
+        Using cmd As New OleDb.OleDbCommand("UPDATE tbl_items SET [item_name] = @item, [category] = @category, [price] = @price, [stock] = @stock WHERE ID = @id", con)
+            With cmd.Parameters
+                .AddWithValue("@item", txtItemName.Text)
+                .AddWithValue("@@category", cmbCategory.Text)
+                .AddWithValue("@price", txtPrice.Text)
+                .AddWithValue("@stock", numStock.Value)
+                .AddWithValue("@id", grdItems.SelectedCells(0).Value)
+            End With
+            Dim result = cmd.ExecuteNonQuery
+            If result > 0 Then
+                MessageBox.Show("Information has been updated.", "Notice", MessageBoxButtons.OK)
+                btnCancel.PerformClick()
+                grdItems_CellClick(Me.grdItems, New DataGridViewCellEventArgs(0, 0))
+            End If
+        End Using
     End Sub
 
     Private Sub btnInventory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInventory.Click
