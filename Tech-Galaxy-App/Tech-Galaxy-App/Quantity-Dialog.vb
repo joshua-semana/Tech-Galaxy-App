@@ -3,7 +3,7 @@
 Public Class dlgQuantity
     'Form Load
     Private Sub dlgQuantity_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If formOpen = 1 Then
+        If frmMain.Visible = True Then
             numQuantity.Maximum = frmMain.grdItems.SelectedCells(4).Value
             numQuantity.Value = 1
         Else
@@ -16,7 +16,7 @@ Public Class dlgQuantity
         If numQuantity.Value > numQuantity.Maximum Then
             MessageBox.Show("The input number has exceeded the total stock available.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            If formOpen = 1 Then
+            If frmMain.Visible = True Then
                 Using cmd As New OleDb.OleDbCommand("UPDATE tbl_items SET [stock] = @stock WHERE ID = @id", con)
                     With cmd.Parameters
                         .AddWithValue("@stock", frmMain.grdItems.SelectedCells(4).Value - numQuantity.Value)
